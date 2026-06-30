@@ -431,20 +431,21 @@ em{font-style:italic;}
 /* ===========================================================
    11. INSTRUCTOR
    =========================================================== */
-.inst-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center;margin-top:46px;}
-.inst-photo-frame{position:relative;padding:12px;background:var(--cream-2);border:1px solid var(--border);border-radius:4px;box-shadow:0 22px 55px rgba(26,18,8,.2);}
+.inst-grid{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:center;margin-top:50px;}
+.inst-photo-frame{position:relative;padding:10px;background:var(--cream-2);border:1px solid var(--border);border-radius:4px;box-shadow:0 26px 60px rgba(0,0,0,.38);width:100%;max-width:300px;}
 .inst-photo-frame::before{content:"";position:absolute;inset:5px;border:1px solid var(--border-soft);border-radius:2px;z-index:2;pointer-events:none;}
 .inst-photo{
-  width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;
-  filter:sepia(.28) contrast(1.02);
+  display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 18%;border-radius:2px;
+  filter:sepia(.16) contrast(1.02);
   background:linear-gradient(160deg,var(--teal-2),var(--teal));
 }
-.inst-fleuron{text-align:center;color:var(--gold-deep);font-size:24px;margin-bottom:8px;}
-.inst-body h2{font-size:clamp(26px,4vw,38px);color:var(--ink);}
-.inst-role{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin:8px 0 18px;}
-.inst-body p{font-family:'Libre Baskerville',serif;font-size:16.5px;color:#3a2e16;line-height:1.75;}
-.inst-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;}
-.inst-tag{font-size:12.5px;border:1px solid var(--border);border-radius:2px;padding:6px 13px;color:var(--gold-deep);background:rgba(201,168,76,.07);}
+.inst-fleuron{color:var(--gold-light);font-size:24px;margin-bottom:6px;line-height:1;}
+.inst-body h2{font-size:clamp(28px,4vw,40px);color:var(--cream);line-height:1.05;}
+.inst-role{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-light);font-weight:600;margin:10px 0 0;}
+.inst-divider{width:54px;height:1px;background:var(--gold);opacity:.55;margin:20px 0;}
+.inst-body p{font-family:'Libre Baskerville',serif;font-size:16.5px;color:#dce8e2;line-height:1.85;margin:0;}
+.inst-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px;}
+.inst-tag{font-size:12.5px;border:1px solid rgba(201,168,76,.45);border-radius:2px;padding:7px 14px;color:var(--gold-light);background:rgba(201,168,76,.08);}
 
 /* ===========================================================
    12. TESTIMONIALS
@@ -561,8 +562,11 @@ em{font-style:italic;}
    =========================================================== */
 @media (max-width:980px){
   .hero-grid{grid-template-columns:1fr;gap:38px;}
-  .inst-grid{grid-template-columns:1fr;gap:30px;}
-  .inst-photo-frame{max-width:340px;margin:0 auto;}
+  .inst-grid{grid-template-columns:1fr;gap:32px;justify-items:center;}
+  .inst-photo-frame{max-width:260px;margin:0 auto;}
+  .inst-body{text-align:center;}
+  .inst-divider{margin-left:auto;margin-right:auto;}
+  .inst-tags{justify-content:center;}
   .test-grid{grid-template-columns:1fr;}
   .inc-grid{grid-template-columns:repeat(2,1fr);}
   .results-stage{gap:18px;}
@@ -869,13 +873,14 @@ em{font-style:italic;}
         <img class="inst-photo" id="instPhoto"
              src="https://cdn.shopify.com/s/files/1/0750/5104/0951/files/IMG_9793.jpg?v=1780706142"
              alt="Antoine L., native French teacher from Paris, smiling in a portrait photograph"
-             width="600" height="800" loading="lazy"
-             onerror="this.onerror=null;this.removeAttribute('src');this.style.minHeight='360px';this.alt='Portrait of Antoine L.';">
+             width="480" height="600" loading="lazy"
+             onerror="this.onerror=null;this.removeAttribute('src');this.style.minHeight='300px';this.alt='Portrait of Antoine L.';">
       </div>
       <div class="inst-body reveal" data-delay="1">
         <div class="inst-fleuron" aria-hidden="true">❧</div>
-        <h2 id="inst-title" style="color:var(--cream)">Antoine L.</h2>
+        <h2 id="inst-title">Antoine L.</h2>
         <div class="inst-role">Native French Teacher · Paris</div>
+        <div class="inst-divider" aria-hidden="true"></div>
         <p>I'm a native French speaker from Paris who has been teaching French to international students for years. I know exactly where English-speaking learners get stuck — and how to explain French in a way that finally makes sense. I created this course because I kept seeing brilliant students fail the DELF B1 not because their French was bad, but because no one had given them clear, English-language guidance on what the exam actually requires.</p>
         <div class="inst-tags">
           <span class="inst-tag">Native Parisian French</span>
