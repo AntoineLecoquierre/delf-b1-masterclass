@@ -12,12 +12,13 @@
 <meta property="og:type" content="product">
 <meta property="og:title" content="DELF B1 Exam Prep Course – Antoine L.">
 <meta property="og:description" content="The only structured DELF B1 prep course taught entirely in English. Pass the DELF B1 without feeling lost in a French classroom.">
-<meta property="og:image" content="https://cdn.shopify.com/s/files/1/0750/5104/0951/files/IMG_9793.jpg?v=1780706142">
-<meta property="og:url" content="https://frenchmaster.gumroad.com/l/cwgpqw">
+<meta property="og:image" content="https://antoinelecoquierre.github.io/delf-b1-masterclass/images/graduation-trio.jpg">
+<meta property="og:image:alt" content="International students holding their DELF B1 diplomas">
+<meta property="og:url" content="https://antoinelecoquierre.github.io/delf-b1-masterclass/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="DELF B1 Exam Prep Course – Antoine L.">
 <meta name="twitter:description" content="The only structured DELF B1 prep course taught entirely in English.">
-<meta name="twitter:image" content="https://cdn.shopify.com/s/files/1/0750/5104/0951/files/IMG_9793.jpg?v=1780706142">
+<meta name="twitter:image" content="https://antoinelecoquierre.github.io/delf-b1-masterclass/images/graduation-trio.jpg">
 <meta name="theme-color" content="#0f3333">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230f3333'/%3E%3Crect x='6' y='6' width='52' height='52' rx='7' fill='none' stroke='%23c9a84c' stroke-width='1.5'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='36' font-weight='bold' fill='%23e8c96a' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 
@@ -561,6 +562,33 @@ em{font-style:italic;}
 [data-delay="5"]{transition-delay:.40s;}
 
 /* ===========================================================
+   EDITORIAL PHOTO BANDS
+   =========================================================== */
+.photo-band{position:relative;width:100%;height:clamp(340px,56vh,580px);overflow:hidden;display:flex;align-items:flex-end;}
+.photo-band img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 26%;
+  filter:sepia(.42) saturate(.82) contrast(1.03) brightness(.92);
+  background:linear-gradient(160deg,var(--teal-2),var(--teal));
+}
+.photo-band::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(15,51,51,.58) 0%, rgba(15,51,51,.12) 34%, rgba(15,51,51,.80) 100%),
+    linear-gradient(110deg, rgba(184,92,60,.16), transparent 55%);
+}
+.photo-band .pb-caption{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px 42px;}
+.photo-band .pb-label{
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--gold-light);display:inline-flex;align-items:center;gap:12px;text-shadow:0 2px 12px rgba(0,0,0,.6);
+}
+.photo-band .pb-label .star{color:var(--terracotta-soft);}
+.photo-band h2{
+  font-family:'Playfair Display',serif;font-weight:900;color:var(--cream);
+  font-size:clamp(26px,4.4vw,44px);line-height:1.1;margin:12px 0 0;max-width:16ch;text-shadow:0 4px 24px rgba(0,0,0,.6);
+}
+.photo-band h2 em{color:var(--gold-light);font-style:italic;}
+
+/* ===========================================================
    RESPONSIVE
    =========================================================== */
 @media (max-width:980px){
@@ -712,6 +740,17 @@ em{font-style:italic;}
 </section>
 
 <main>
+
+<!-- EDITORIAL PHOTO BAND — international learners certified -->
+<section class="photo-band" aria-label="International learners with their DELF B1 diplomas">
+  <img src="images/graduation-trio.jpg" width="1600" height="1099" loading="lazy" decoding="async"
+       alt="Three international students smiling, each holding a DELF B1 diploma, in front of a French flag and an Institut Français banner"
+       onerror="this.style.display='none';">
+  <div class="pb-caption reveal">
+    <span class="pb-label"><span class="star">✦</span> Passed &amp; Certified</span>
+    <h2>Learners from 20+ countries — <em>now certified in French</em></h2>
+  </div>
+</section>
 
 <!-- 5. IS THIS FOR YOU -->
 <section class="section bg-paper on-light" aria-labelledby="iy-title">
@@ -876,6 +915,17 @@ em{font-style:italic;}
   </div>
 </section>
 
+<!-- EDITORIAL PHOTO BAND — diploma in hand -->
+<section class="photo-band" aria-label="A learner holding her DELF B1 diploma">
+  <img src="images/graduation-lobby.jpg" width="1600" height="863" loading="lazy" decoding="async"
+       alt="A smiling learner in a French institute holding her DELF B1 diploma, with other students in the background"
+       onerror="this.style.display='none';">
+  <div class="pb-caption reveal">
+    <span class="pb-label"><span class="star">✦</span> The Proof</span>
+    <h2>A clear method turns study time into <em>a real diploma</em></h2>
+  </div>
+</section>
+
 <!-- 10. 1-TO-1 SPEAKING PRACTICE -->
 <section class="section coach-section on-light" aria-labelledby="coach-title">
   <div class="paper-texture" aria-hidden="true"></div>
@@ -1017,6 +1067,17 @@ em{font-style:italic;}
         <div class="faq-a" id="faq5-a" role="region" aria-labelledby="faq5-q"><div class="faq-a-inner">It prepares you for the standard DELF B1, which is valid worldwide for any session date — the format and criteria are the same wherever you sit it.</div></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- EDITORIAL PHOTO BAND — the moment -->
+<section class="photo-band" aria-label="A learner receiving her DELF B1 diploma to applause">
+  <img src="images/graduation-ceremony.jpg" width="1600" height="1099" loading="lazy" decoding="async"
+       alt="A learner receiving her DELF B1 diploma and shaking hands, applauded by a group of fellow students"
+       onerror="this.style.display='none';">
+  <div class="pb-caption reveal">
+    <span class="pb-label"><span class="star">✦</span> Your Moment</span>
+    <h2>Picture yourself <em>holding it</em></h2>
   </div>
 </section>
 
