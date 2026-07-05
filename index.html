@@ -4,11 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google tag (gtag.js) — GA4 -->
+<!-- Google tag (gtag.js) — GA4 with Consent Mode v2 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QQ8E1P47Q"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  // Denied by default until the visitor gives consent (GDPR).
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  // Re-apply a previously stored choice as early as possible.
+  try {
+    if (localStorage.getItem('cookieConsent') === 'granted') {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
+  } catch(e){}
   gtag('js', new Date());
   gtag('config', 'G-5QQ8E1P47Q');
 </script>
@@ -599,6 +612,27 @@ em{font-style:italic;}
 .photo-band h2 em{color:var(--gold-light);font-style:italic;}
 
 /* ===========================================================
+   COOKIE CONSENT BAR
+   =========================================================== */
+.cookie-bar{
+  position:fixed;left:0;bottom:0;width:100%;z-index:200;
+  background:rgba(15,51,51,.98);backdrop-filter:blur(8px);
+  border-top:1px solid rgba(201,168,76,.4);
+  box-shadow:0 -8px 30px rgba(0,0,0,.32);
+  transform:translateY(110%);transition:transform .4s var(--ease);
+}
+.cookie-bar.show{transform:translateY(0);}
+.cookie-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:20px;padding:14px 20px;flex-wrap:wrap;}
+.cookie-text{flex:1;min-width:240px;font-size:13.5px;color:#dfe9e3;line-height:1.55;margin:0;}
+.cookie-text a{color:var(--gold-light);text-decoration:underline;}
+.cookie-actions{display:flex;gap:10px;flex:none;}
+.cookie-actions .btn{padding:11px 22px;font-size:14px;}
+.btn-ghost{background:transparent;color:var(--cream);border:1px solid rgba(201,168,76,.5);}
+.btn-ghost:hover{background:rgba(201,168,76,.12);transform:translateY(-2px);}
+/* while the visitor hasn't chosen, keep the purchase bar out of the way */
+body.consent-pending .sticky-cta{display:none !important;}
+
+/* ===========================================================
    RESPONSIVE
    =========================================================== */
 @media (max-width:980px){
@@ -625,6 +659,9 @@ em{font-style:italic;}
   .is-in .stat-card.f1,.is-in .stat-card.f2,.is-in .stat-card.f3{animation:none;}
   .sticky-left .st-price{font-size:12px;}
   .sticky-cta .btn{padding:11px 18px;font-size:14px;}
+  .cookie-inner{gap:12px;}
+  .cookie-actions{width:100%;}
+  .cookie-actions .btn{flex:1;}
 }
 @media (max-width:430px){
   body{font-size:16px;}
@@ -1138,10 +1175,50 @@ em{font-style:italic;}
   </div>
 </div>
 
+<!-- COOKIE CONSENT BAR -->
+<div class="cookie-bar" id="cookieBar" role="dialog" aria-label="Cookie consent" aria-hidden="true">
+  <div class="cookie-inner">
+    <p class="cookie-text">This site uses cookies to measure traffic with Google Analytics and improve the page. Analytics stays off unless you accept — you can decline and keep browsing normally.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-ghost" id="cookieDecline" type="button">Decline</button>
+      <button class="btn btn-gold" id="cookieAccept" type="button">Accept</button>
+    </div>
+  </div>
+</div>
+
 <script>
 document.addEventListener('DOMContentLoaded', function(){
   var reduceMotion = false;
   try { reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e){}
+
+  /* ---- Feature 0: cookie consent (GDPR / Consent Mode v2) ---- */
+  try {
+    var cookieBar = document.getElementById('cookieBar');
+    var choice = null;
+    try { choice = localStorage.getItem('cookieConsent'); } catch(e){}
+
+    function closeBar(){
+      if (cookieBar){ cookieBar.classList.remove('show'); cookieBar.setAttribute('aria-hidden','true'); }
+      document.body.classList.remove('consent-pending');
+    }
+    function setConsent(granted){
+      try { localStorage.setItem('cookieConsent', granted ? 'granted' : 'denied'); } catch(e){}
+      if (granted && typeof window.gtag === 'function'){
+        window.gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+      closeBar();
+    }
+
+    if (!choice && cookieBar){
+      document.body.classList.add('consent-pending');
+      // small delay so the bar slides in after first paint
+      window.setTimeout(function(){ cookieBar.classList.add('show'); cookieBar.setAttribute('aria-hidden','false'); }, 600);
+    }
+    var acc = document.getElementById('cookieAccept');
+    var dec = document.getElementById('cookieDecline');
+    if (acc) acc.addEventListener('click', function(){ setConsent(true); });
+    if (dec) dec.addEventListener('click', function(){ setConsent(false); });
+  } catch(e){}
 
   /* ---- Feature 1: scroll progress bar ---- */
   try {
