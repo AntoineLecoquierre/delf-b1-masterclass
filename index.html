@@ -649,6 +649,16 @@ body.consent-pending .sticky-cta{display:none !important;}
   color:var(--gold-deep);font-weight:600;padding:13px 4px 5px;text-align:center;
 }
 .peek-note{font-family:'IM Fell English',serif;font-style:italic;color:var(--gold-light);font-size:16px;margin-top:34px;}
+.peek-video{position:relative;max-width:900px;margin:44px auto 0;border-radius:8px;overflow:hidden;
+  border:1px solid var(--border);box-shadow:0 30px 70px rgba(0,0,0,.42);background:var(--cream);}
+.peek-video video{width:100%;height:auto;display:block;}
+.peek-video .pv-badge{position:absolute;top:14px;left:14px;z-index:2;display:flex;align-items:center;gap:8px;
+  background:rgba(15,20,33,.72);color:#fff;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;font-weight:600;padding:7px 13px;border-radius:40px;backdrop-filter:blur(4px);}
+.peek-video .pv-badge .pv-dot{width:8px;height:8px;border-radius:50%;background:var(--gold-light);
+  box-shadow:0 0 0 0 rgba(201,168,76,.6);animation:pvPulse 2s infinite;}
+@keyframes pvPulse{0%{box-shadow:0 0 0 0 rgba(201,168,76,.55)}70%{box-shadow:0 0 0 9px rgba(201,168,76,0)}100%{box-shadow:0 0 0 0 rgba(201,168,76,0)}}
+@media (prefers-reduced-motion: reduce){.peek-video .pv-dot{animation:none;}}
 
 /* ===========================================================
    RESPONSIVE
@@ -987,7 +997,13 @@ body.consent-pending .sticky-cta{display:none !important;}
   <div class="wrap center">
     <span class="section-label reveal"><span class="star">✦</span> A Look Inside <span class="star">✦</span></span>
     <h2 class="section-title reveal" id="peek-title">See the <em>actual method</em>, slide by slide</h2>
-    <p class="lede reveal">A glimpse of the masterclass — clear, structured lessons for each of the four exam skills, taught in English.</p>
+    <p class="lede reveal">A glimpse of the masterclass — clear, animated lessons for every exam skill, taught in English.</p>
+    <div class="peek-video reveal">
+      <span class="pv-badge"><span class="pv-dot" aria-hidden="true"></span> Course preview</span>
+      <video src="images/course-preview.mp4" poster="images/course-preview-poster.jpg"
+             autoplay muted loop playsinline preload="metadata"
+             aria-label="Silent animated preview of the DELF B1 Masterclass lessons"></video>
+    </div>
     <div class="peek-grid" role="list">
       <figure class="peek-card tilt reveal" data-delay="1" role="listitem" style="margin:0">
         <img src="images/preview-listening.jpg" width="1400" height="788" loading="lazy" decoding="async"
