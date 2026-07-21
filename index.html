@@ -712,6 +712,44 @@ body.consent-pending .sticky-cta{display:none !important;}
   .dust{display:none;}
   .is-in .stat-card.f1,.is-in .stat-card.f2,.is-in .stat-card.f3{animation:none !important;}
 }
+
+/* ============================================================
+   ÉPURÉ — minimalist refinement (declutter pass)
+   ============================================================ */
+/* Repeated ✦ stars in section labels → removed (still used as list bullets elsewhere) */
+.section-label .star{display:none;}
+.section-label{gap:0;}
+
+/* Flatten backgrounds: no paper texture, no extra hero glow layer */
+.paper-texture{display:none;}
+.hero-glow{display:none;}
+
+/* Remove decorative corner brackets & double-border insets */
+.hero-corner,.final-corner{display:none;}
+.price-card::before,.coach-slip::before,.inst-photo-frame::before,.stat-card::after{display:none;}
+
+/* No drifting gold dust */
+.dust{display:none;}
+
+/* Calmer motion: replace 3D zoom/unfold with a gentle fade-up; soften the tilt */
+.reveal-zoom{transform:translateY(22px);}
+.reveal-zoom.is-in{transform:none;}
+.reveal-unfold{transform:translateY(22px);}
+.reveal-unfold.is-in{transform:none;}
+.tilt:hover{transform:translateY(-3px) !important;box-shadow:0 8px 22px rgba(26,18,8,.08);}
+
+/* Stat cards: static (no perpetual float), lighter frame */
+.is-in .stat-card.f1,.is-in .stat-card.f2,.is-in .stat-card.f3{animation:none !important;transform:none !important;}
+.stat-card{box-shadow:0 14px 34px rgba(0,0,0,.20);}
+
+/* Soften heavy drop shadows for a quieter, flatter feel */
+.price-card{box-shadow:0 14px 34px rgba(0,0,0,.16);}
+.final-card{box-shadow:0 16px 40px rgba(0,0,0,.22);}
+.ps-with{box-shadow:0 12px 32px rgba(15,51,51,.16);}
+.mod:hover,.card.tilt:hover{box-shadow:0 8px 22px rgba(26,18,8,.08);}
+
+/* A little more breathing room between sections */
+.section{padding:100px 20px;}
 </style>
 
 <script type="application/ld+json">
