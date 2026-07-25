@@ -234,14 +234,15 @@ em{font-style:italic;}
 .hero h1 em{color:var(--gold-light);font-style:italic;}
 .hero-sub{font-size:clamp(14px,1.8vw,16.5px);color:#dde8e2;margin-top:18px;max-width:480px;}
 
-.hero-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;}
+.hero-pills{display:flex;flex-wrap:nowrap;gap:10px;margin-top:26px;}
 .pill{
-  display:inline-flex;flex-direction:column;line-height:1.15;
+  flex:1 1 0;min-width:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:3px;line-height:1.15;
   border:1px solid rgba(201,168,76,.4);border-radius:3px;
-  padding:9px 15px;background:rgba(255,255,255,.03);
+  padding:11px 8px;background:rgba(255,255,255,.03);
 }
-.pill b{font-family:'Playfair Display',serif;font-size:17px;color:var(--gold-light);}
-.pill span{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#bcd0c8;}
+.pill b{font-family:'Playfair Display',serif;font-size:19px;color:var(--gold-light);}
+.pill span{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#bcd0c8;}
 
 /* price card */
 .price-card{
@@ -838,8 +839,10 @@ body.consent-pending .sticky-cta{display:none !important;}
   body{font-size:16px;}
   .section{padding:52px 16px;}
   .price-now{font-size:46px;}
-  .hero-pills{gap:8px;}
-  .pill{padding:8px 12px;}
+  .hero-pills{gap:6px;}
+  .pill{padding:9px 4px;}
+  .pill b{font-size:16px;}
+  .pill span{font-size:8px;letter-spacing:.04em;}
   .sticky-left .st-title{font-size:15px;}
 }
 
@@ -957,12 +960,6 @@ body.consent-pending .sticky-cta{display:none !important;}
       <span class="section-label" style="color:var(--gold-light)"><span class="star">✦</span> Taught Entirely in English <span class="star">✦</span></span>
       <h1>Pass the DELF B1 <em>with confidence</em></h1>
       <p class="hero-sub">The only structured DELF B1 prep course taught entirely in English, designed for international learners who need clear explanations, proven strategies, and real exam results.</p>
-      <div class="hero-pills">
-        <span class="pill"><b>B1</b><span>DELF Level</span></span>
-        <span class="pill"><b>5</b><span>Video Modules</span></span>
-        <span class="pill"><b>6</b><span>PDF Guides</span></span>
-        <span class="pill"><b>∞</b><span>Lifetime Access</span></span>
-      </div>
       <div class="hero-actions">
         <div class="hero-cta-row">
           <div class="hero-price">
@@ -973,6 +970,12 @@ body.consent-pending .sticky-cta{display:none !important;}
           <a class="btn btn-gold" href="https://delfb1.gumroad.com/l/cwgpqw?wanted=true">Enroll in the Course →</a>
         </div>
         <span class="hero-actions-note"><span class="star">✦</span> Lifetime access · all future updates included</span>
+      </div>
+      <div class="hero-pills">
+        <span class="pill"><b>B1</b><span>DELF Level</span></span>
+        <span class="pill"><b>5</b><span>Video Modules</span></span>
+        <span class="pill"><b>6</b><span>PDF Guides</span></span>
+        <span class="pill"><b>∞</b><span>Lifetime Access</span></span>
       </div>
     </div>
 
