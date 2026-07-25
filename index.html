@@ -681,11 +681,11 @@ body.consent-pending .sticky-cta{display:none !important;}
 .sc-track{display:flex;align-items:flex-start;transition:transform .55s cubic-bezier(.4,.02,.2,1);will-change:transform;}
 .sc-slide{flex:0 0 100%;margin:0;position:relative;}
 .sc-slide img{width:100%;height:auto;display:block;}
-.sc-slide figcaption{position:absolute;left:0;right:0;bottom:0;
-  font-family:'Inter',sans-serif;font-size:14px;font-weight:600;letter-spacing:.01em;color:#fff;
-  padding:34px 20px 15px;text-align:center;
-  background:linear-gradient(180deg,transparent,rgba(11,26,26,.82));}
-.sc-btn{position:absolute;top:calc(50% - 26px);transform:translateY(-50%);z-index:3;
+.sc-cap{background:var(--cream);padding:20px 30px 24px;text-align:left;border-top:1px solid var(--border-soft);}
+.sc-eyebrow{display:block;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:8px;}
+.sc-cap p{margin:0;color:var(--ink);font-size:15px;line-height:1.55;}
+.sc-btn{position:absolute;top:42%;transform:translateY(-50%);z-index:3;
   width:46px;height:46px;border-radius:50%;border:1px solid rgba(201,168,76,.5);
   background:rgba(15,20,33,.66);color:var(--gold-light);font-size:26px;line-height:1;cursor:pointer;
   display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:background .2s,transform .2s;}
@@ -697,7 +697,8 @@ body.consent-pending .sticky-cta{display:none !important;}
 .sc-dot.is-active{background:var(--gold-light);transform:scale(1.35);}
 @media (max-width:560px){
   .sc-btn{width:38px;height:38px;font-size:22px;}
-  .sc-slide figcaption{font-size:12.5px;}
+  .sc-cap{padding:16px 20px 20px;}
+  .sc-cap p{font-size:14px;}
 }
 
 /* Merged modules grid — each module illustrated by its lesson title slide */
@@ -979,60 +980,35 @@ body.consent-pending .sticky-cta{display:none !important;}
   <div class="wrap center">
     <span class="section-label reveal">What's Inside</span>
     <h2 class="section-title reveal" id="mod-title">Five modules, <em>one complete path</em></h2>
-    <p class="lede reveal">A complete path through every exam skill — swipe through real lessons from inside the course, then explore the five modules below.</p>
-    <div class="slide-carousel reveal" id="slideCarousel" aria-roledescription="carousel" aria-label="Sample lessons from inside the course">
+    <p class="lede reveal">A complete path through every exam skill — swipe through the five modules, each with its own strategy and practice.</p>
+    <div class="slide-carousel reveal" id="slideCarousel" aria-roledescription="carousel" aria-label="The five course modules">
       <div class="sc-viewport">
         <div class="sc-track">
-          <figure class="sc-slide"><img src="images/preview-foundation.jpg" width="1400" height="788" loading="lazy" decoding="async" alt="Module I title slide — Understanding the DELF B1"><figcaption>The exam, decoded — before you study for it</figcaption></figure>
-          <figure class="sc-slide"><img src="images/slide-listening-numbers.jpg" width="1920" height="1080" loading="lazy" decoding="async" alt="Slide: the listening section in numbers — 25 points, 3 documents, 25 minutes"><figcaption>Listening — 25 points, 3 documents, decoded</figcaption></figure>
-          <figure class="sc-slide"><img src="images/slide-two-students.jpg" width="1920" height="1080" loading="lazy" decoding="async" alt="Slide: two types of students — the panicker vs the strategist"><figcaption>The mindset shift: from panicker to strategist</figcaption></figure>
-          <figure class="sc-slide"><img src="images/slide-golden-rule.jpg" width="1920" height="1080" loading="lazy" decoding="async" alt="Slide: the golden rule — read the questions first"><figcaption>The golden rule of reading</figcaption></figure>
-          <figure class="sc-slide"><img src="images/slide-hunting.jpg" width="1920" height="1080" loading="lazy" decoding="async" alt="Slide: you're not reading, you're hunting"><figcaption>Reading is hunting — not reading</figcaption></figure>
-          <figure class="sc-slide"><img src="images/slide-examiner.jpg" width="1920" height="1080" loading="lazy" decoding="async" alt="Slide: what the examiner actually grades in writing"><figcaption>What the examiner actually grades</figcaption></figure>
-          <figure class="sc-slide"><img src="images/slide-flow.jpg" width="1920" height="1080" loading="lazy" decoding="async" alt="Slide: speaking — flow beats perfection"><figcaption>Speaking — flow beats perfection</figcaption></figure>
-          <figure class="sc-slide"><img src="images/preview-speaking.jpg" width="1400" height="788" loading="lazy" decoding="async" alt="Module V title slide — Part 4: Speaking Strategy"><figcaption>Every skill, one clear method</figcaption></figure>
+          <figure class="sc-slide">
+            <img src="images/preview-foundation.jpg" width="1400" height="788" loading="lazy" decoding="async" alt="Module I title slide — Understanding the DELF B1, with a compass illustration">
+            <figcaption class="sc-cap"><span class="sc-eyebrow">I · Foundation</span><p>Exam structure &amp; scoring, the 4 sections, how to pass even with mistakes, and a 4–6 week study plan.</p></figcaption>
+          </figure>
+          <figure class="sc-slide">
+            <img src="images/preview-listening.jpg" width="1400" height="788" loading="lazy" decoding="async" alt="Module II title slide — Part 1: Listening Strategy, with a headphones illustration">
+            <figcaption class="sc-cap"><span class="sc-eyebrow">II · Listening · 25 pts</span><p>Understanding without catching every word, Doc 1 &amp; 2 strategies, prediction techniques, and practice with full explanations.</p></figcaption>
+          </figure>
+          <figure class="sc-slide">
+            <img src="images/preview-reading.jpg" width="1400" height="788" loading="lazy" decoding="async" alt="Module III title slide — Part 2: Reading Strategy, with a book and magnifier illustration">
+            <figcaption class="sc-cap"><span class="sc-eyebrow">III · Reading · 25 pts</span><p>Speed-reading, spotting distractor answers, the true/false/not-mentioned approach, and context vocabulary clues.</p></figcaption>
+          </figure>
+          <figure class="sc-slide">
+            <img src="images/preview-writing.jpg" width="1400" height="788" loading="lazy" decoding="async" alt="Module IV title slide — Part 3: Writing Strategy, with a pen and paper illustration">
+            <figcaption class="sc-cap"><span class="sc-eyebrow">IV · Writing · 25 pts</span><p>Examiner-expected structure &amp; templates, key connectors, common mistakes, and annotated model answers.</p></figcaption>
+          </figure>
+          <figure class="sc-slide">
+            <img src="images/preview-speaking.jpg" width="1400" height="788" loading="lazy" decoding="async" alt="Module V title slide — Part 4: Speaking Strategy, with a speech-bubble illustration">
+            <figcaption class="sc-cap"><span class="sc-eyebrow">V · Speaking · 25 pts</span><p>What examiners score, the monologue / dialogue / point-of-view decoded, fluency phrases, and recovery when you get stuck.</p></figcaption>
+          </figure>
         </div>
       </div>
       <button class="sc-btn sc-prev" type="button" aria-label="Previous slide">‹</button>
       <button class="sc-btn sc-next" type="button" aria-label="Next slide">›</button>
-      <div class="sc-dots" role="tablist" aria-label="Choose slide"></div>
-    </div>
-    <div class="mod-grid" role="list">
-      <article class="mod-card reveal" role="listitem" data-delay="1">
-        <img src="images/preview-foundation.jpg" width="1400" height="788" loading="lazy" decoding="async"
-             alt="Module I title slide — Understanding the DELF B1, foundation mastery guide, with a compass illustration"
-             onerror="this.style.display='none';">
-        <div class="mc-body"><span class="mc-eyebrow">I · Foundation</span>
-          <p>Exam structure &amp; scoring, the 4 sections, how to pass even with mistakes, and a 4–6 week study plan.</p></div>
-      </article>
-      <article class="mod-card reveal" role="listitem" data-delay="2">
-        <img src="images/preview-listening.jpg" width="1400" height="788" loading="lazy" decoding="async"
-             alt="Module II title slide — Part 1: Listening Strategy, Compréhension de l'oral, with a headphones illustration"
-             onerror="this.style.display='none';">
-        <div class="mc-body"><span class="mc-eyebrow">II · Listening · 25 pts</span>
-          <p>Understanding without catching every word, Doc 1 &amp; 2 strategies, prediction techniques, and practice with full explanations.</p></div>
-      </article>
-      <article class="mod-card reveal" role="listitem" data-delay="3">
-        <img src="images/preview-reading.jpg" width="1400" height="788" loading="lazy" decoding="async"
-             alt="Module III title slide — Part 2: Reading Strategy, Compréhension des écrits, with a book and magnifier illustration"
-             onerror="this.style.display='none';">
-        <div class="mc-body"><span class="mc-eyebrow">III · Reading · 25 pts</span>
-          <p>Speed-reading, spotting distractor answers, the true/false/not-mentioned approach, and context vocabulary clues.</p></div>
-      </article>
-      <article class="mod-card reveal" role="listitem" data-delay="1">
-        <img src="images/preview-writing.jpg" width="1400" height="788" loading="lazy" decoding="async"
-             alt="Module IV title slide — Part 3: Writing Strategy, Production écrite, with a pen and paper illustration"
-             onerror="this.style.display='none';">
-        <div class="mc-body"><span class="mc-eyebrow">IV · Writing · 25 pts</span>
-          <p>Examiner-expected structure &amp; templates, key connectors, common mistakes, and annotated model answers.</p></div>
-      </article>
-      <article class="mod-card reveal" role="listitem" data-delay="2">
-        <img src="images/preview-speaking.jpg" width="1400" height="788" loading="lazy" decoding="async"
-             alt="Module V title slide — Part 4: Speaking Strategy, Production orale, with a speech-bubble illustration"
-             onerror="this.style.display='none';">
-        <div class="mc-body"><span class="mc-eyebrow">V · Speaking · 25 pts</span>
-          <p>What examiners score, the monologue / dialogue / point-of-view decoded, fluency phrases, and recovery when you get stuck.</p></div>
-      </article>
+      <div class="sc-dots" role="tablist" aria-label="Choose module"></div>
     </div>
   </div>
 </section>
