@@ -418,6 +418,34 @@ em{font-style:italic;}
 .inc-item h3{font-size:17px;color:var(--ink);margin-bottom:3px;}
 .inc-item p{margin:0;font-size:14px;color:var(--muted);}
 
+/* ---- Zoom slider (What's Included, drag + icon zoom) ---- */
+.zoom-slider{position:relative;max-width:940px;margin:42px auto 0;--sw:56%;}
+.zs-viewport{overflow:hidden;}
+.zs-track{display:flex;padding:16px calc((100% - var(--sw))/2);cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;}
+.zs-track:active{cursor:grabbing;}
+.zs-slide{flex:0 0 var(--sw);box-sizing:border-box;padding:0 12px;transition:opacity .25s ease;}
+.zs-card{background:var(--cream-2);border:1px solid var(--border-soft);border-radius:16px;
+  padding:36px 30px 32px;text-align:center;min-height:322px;
+  display:flex;flex-direction:column;align-items:center;box-shadow:0 14px 34px rgba(20,40,40,.08);
+  transition:border-color .3s ease,box-shadow .3s ease;}
+.zs-icon{width:98px;height:98px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:44px;line-height:1;color:var(--gold-deep);background:linear-gradient(180deg,#ffffff,var(--cream));
+  border:1.5px solid var(--gold);box-shadow:0 10px 26px rgba(169,134,63,.22);margin-bottom:22px;
+  transform:scale(.8);transition:transform .12s linear;will-change:transform;pointer-events:none;}
+.zs-card h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);margin:0 0 9px;}
+.zs-card p{margin:0;font-size:14.5px;line-height:1.55;color:var(--muted);max-width:290px;}
+.zs-slide.is-center .zs-card{border-color:var(--gold);box-shadow:0 24px 54px rgba(20,40,40,.16);}
+.zs-btn{position:absolute;top:46%;transform:translateY(-50%);z-index:3;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--gold);background:rgba(255,255,255,.92);color:var(--gold-deep);font-size:24px;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.12);transition:background .2s,transform .2s;}
+.zs-btn:hover{background:var(--gold);color:#fff;transform:translateY(-50%) scale(1.06);}
+.zs-prev{left:0;} .zs-next{right:0;}
+.zs-dots{display:flex;justify-content:center;gap:9px;margin-top:22px;}
+.zs-dot{width:8px;height:8px;border-radius:50%;border:none;padding:0;cursor:pointer;background:rgba(169,134,63,.3);transition:background .2s,transform .2s;}
+.zs-dot.is-active{background:var(--gold);transform:scale(1.35);}
+.zs-hint{text-align:center;margin:12px 0 0;font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);opacity:.7;}
+@media(max-width:640px){.zoom-slider{--sw:82%;} .zs-card{min-height:300px;} .zs-btn{width:38px;height:38px;font-size:21px;}}
+
 /* ===========================================================
    10. 1-TO-1 SPEAKING PRACTICE
    =========================================================== */
@@ -1011,12 +1039,40 @@ body.consent-pending .sticky-cta{display:none !important;}
   <div class="wrap center">
     <span class="section-label reveal"><span class="star">✦</span> What's Included <span class="star">✦</span></span>
     <h2 class="section-title reveal" id="inc-title">Everything you need, <em>nothing you don't</em></h2>
-    <div class="inc-grid" style="text-align:left">
-      <div class="inc-item tilt reveal" data-delay="1"><span class="inc-ic">▷</span><div><h3>5 video modules</h3><p>Clear, animated lessons for every exam section — with English subtitles included.</p></div></div>
-      <div class="inc-item tilt reveal" data-delay="2"><span class="inc-ic">❧</span><div><h3>6 PDF guides</h3><p>Grammar Reference, Listening Pack, Reading Pack, Writing Pack, Speaking Pack &amp; Study Plan.</p></div></div>
-      <div class="inc-item tilt reveal" data-delay="1"><span class="inc-ic">✎</span><div><h3>Practice exercises</h3><p>Exam-authentic practice with explanations.</p></div></div>
-      <div class="inc-item tilt reveal" data-delay="2"><span class="inc-ic">◷</span><div><h3>4–6 week study plan</h3><p>A day-by-day path from start to exam-ready.</p></div></div>
-      <div class="inc-item tilt reveal" data-delay="3"><span class="inc-ic">∞</span><div><h3>Lifetime access</h3><p>Yours forever, including all future updates.</p></div></div>
+    <div class="zoom-slider reveal" id="incSlider" aria-roledescription="carousel" aria-label="What's included">
+      <div class="zs-viewport">
+        <div class="zs-track">
+          <div class="zs-slide"><div class="zs-card">
+            <span class="zs-icon" aria-hidden="true">▷</span>
+            <h3>5 video modules</h3>
+            <p>Clear, animated lessons for every exam section — with English subtitles included.</p>
+          </div></div>
+          <div class="zs-slide"><div class="zs-card">
+            <span class="zs-icon" aria-hidden="true">❧</span>
+            <h3>6 PDF guides</h3>
+            <p>Grammar Reference, Listening Pack, Reading Pack, Writing Pack, Speaking Pack &amp; Study Plan.</p>
+          </div></div>
+          <div class="zs-slide"><div class="zs-card">
+            <span class="zs-icon" aria-hidden="true">✎</span>
+            <h3>Practice exercises</h3>
+            <p>Exam-authentic practice with clear explanations.</p>
+          </div></div>
+          <div class="zs-slide"><div class="zs-card">
+            <span class="zs-icon" aria-hidden="true">◷</span>
+            <h3>4–6 week study plan</h3>
+            <p>A day-by-day path from start to exam-ready.</p>
+          </div></div>
+          <div class="zs-slide"><div class="zs-card">
+            <span class="zs-icon" aria-hidden="true">∞</span>
+            <h3>Lifetime access</h3>
+            <p>Yours forever, including all future updates.</p>
+          </div></div>
+        </div>
+      </div>
+      <button class="zs-btn zs-prev" type="button" aria-label="Previous">‹</button>
+      <button class="zs-btn zs-next" type="button" aria-label="Next">›</button>
+      <div class="zs-dots" role="tablist" aria-label="Choose item"></div>
+      <p class="zs-hint" aria-hidden="true">Drag to explore</p>
     </div>
   </div>
 </section>
@@ -1580,6 +1636,83 @@ document.addEventListener('DOMContentLoaded', function(){
       window.addEventListener('resize', rSync);
       rSync();
       rStart();
+    }
+  } catch(e){}
+
+  /* ---- Zoom slider (What's Included): drag + icon zoom by distance to centre ---- */
+  try {
+    var zs = document.getElementById('incSlider');
+    if (zs) {
+      var ztrack = zs.querySelector('.zs-track');
+      var zslides = [].slice.call(zs.querySelectorAll('.zs-slide'));
+      var zdots = zs.querySelector('.zs-dots');
+      var ztx = 0, zdrag = false, zStartX = 0, zStartTx = 0, zActive = 0, zRAF = null, zSnap = null;
+      function zSetTx(v){ ztx = v; ztrack.style.transform = 'translateX(' + v + 'px)'; }
+      function zMid(el){ var r = el.getBoundingClientRect(); return r.left + r.width/2; }
+      function zCentre(){ var r = zs.getBoundingClientRect(); return r.left + r.width/2; }
+      function zFX(){
+        var c = zCentre();
+        for (var i=0;i<zslides.length;i++){
+          var sl = zslides[i];
+          var w = sl.getBoundingClientRect().width || 1;
+          var norm = Math.min(Math.abs(zMid(sl) - c) / w, 1);
+          var s = (1.34 - norm * 0.54).toFixed(3);
+          var ic = sl.querySelector('.zs-icon');
+          if (ic) ic.style.transform = 'scale(' + s + ')';
+          sl.style.opacity = (1 - norm * 0.5).toFixed(3);
+          sl.classList.toggle('is-center', norm < 0.35);
+        }
+      }
+      function zNearest(){
+        var c = zCentre(), best = 0, bd = Infinity;
+        for (var i=0;i<zslides.length;i++){ var d = Math.abs(zMid(zslides[i]) - c); if (d < bd){ bd = d; best = i; } }
+        return best;
+      }
+      function zDots(){
+        var ds = zdots.querySelectorAll('.zs-dot');
+        for (var i=0;i<ds.length;i++) ds[i].classList.toggle('is-active', i===zActive);
+      }
+      function zGo(i, animate){
+        zActive = Math.max(0, Math.min(zslides.length - 1, i));
+        var delta = zCentre() - zMid(zslides[zActive]);
+        ztrack.style.transition = animate ? 'transform .5s cubic-bezier(.22,.61,.36,1)' : 'none';
+        zSetTx(ztx + delta);
+        zDots();
+        if (zSnap) cancelAnimationFrame(zSnap);
+        if (animate){ var t0 = performance.now(); (function loop(){ zFX(); if (performance.now() - t0 < 540){ zSnap = requestAnimationFrame(loop); } })(); }
+        else zFX();
+      }
+      for (var i=0;i<zslides.length;i++){
+        (function(k){
+          var d = document.createElement('button');
+          d.className = 'zs-dot' + (k===0?' is-active':''); d.type = 'button';
+          d.setAttribute('aria-label','Go to item '+(k+1));
+          d.addEventListener('click', function(){ zGo(k, true); });
+          zdots.appendChild(d);
+        })(i);
+      }
+      function zDown(e){
+        zdrag = true; ztrack.style.transition = 'none';
+        zStartX = e.clientX; zStartTx = ztx;
+        if (zRAF) { cancelAnimationFrame(zRAF); zRAF = null; }
+        if (zSnap) { cancelAnimationFrame(zSnap); zSnap = null; }
+      }
+      function zMove(e){
+        if (!zdrag) return;
+        zSetTx(zStartTx + (e.clientX - zStartX));
+        if (!zRAF) zRAF = requestAnimationFrame(function(){ zRAF = null; zFX(); });
+      }
+      function zUp(){ if (!zdrag) return; zdrag = false; zGo(zNearest(), true); }
+      ztrack.addEventListener('pointerdown', zDown);
+      window.addEventListener('pointermove', zMove);
+      window.addEventListener('pointerup', zUp);
+      ztrack.addEventListener('dragstart', function(e){ e.preventDefault(); });
+      var zp = zs.querySelector('.zs-prev'), zn = zs.querySelector('.zs-next');
+      if (zp) zp.addEventListener('click', function(){ zGo(zActive - 1, true); });
+      if (zn) zn.addEventListener('click', function(){ zGo(zActive + 1, true); });
+      window.addEventListener('resize', function(){ zGo(zActive, false); });
+      requestAnimationFrame(function(){ zGo(0, false); });
+      window.addEventListener('load', function(){ zGo(zActive, false); });
     }
   } catch(e){}
 
