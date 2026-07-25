@@ -497,6 +497,48 @@ em{font-style:italic;}
 .test-translation .tt-tag{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:5px;opacity:.85;}
 .test-name{font-weight:600;color:var(--cream);font-size:15px;}
 .test-stars{color:var(--gold-light);font-size:12px;letter-spacing:1px;}
+a.preply-badge{text-decoration:none;transition:border-color .25s var(--ease),background .25s var(--ease);}
+a.preply-badge:hover{border-color:rgba(201,168,76,.7);background:rgba(255,255,255,.07);}
+
+/* ---- Testimonials carousel ---- */
+.test-carousel{position:relative;margin-top:46px;}
+.test-track{
+  display:flex;gap:22px;align-items:stretch;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;padding:6px 2px 10px;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.test-track::-webkit-scrollbar{display:none;}
+.test-track > .test-card{
+  flex:0 0 calc((100% - 44px)/3);scroll-snap-align:start;margin:0;
+  display:flex;flex-direction:column;
+}
+.test-track > .test-card .test-foot{margin-top:auto;}
+.tc-arrow{
+  position:absolute;top:calc(50% - 20px);transform:translateY(-50%);z-index:4;
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(9,34,34,.72);border:1px solid rgba(201,168,76,.5);
+  color:var(--gold-light);font-size:22px;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  -webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);
+  transition:background .25s var(--ease),color .25s var(--ease),transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+.tc-arrow:hover{background:var(--gold);color:#231a07;box-shadow:0 10px 24px rgba(0,0,0,.35);}
+.tc-arrow:focus-visible{outline:3px solid var(--gold-light);outline-offset:3px;}
+.tc-arrow:active{transform:translateY(-50%) scale(.94);}
+.tc-prev{left:-8px;}
+.tc-next{right:-8px;}
+.tc-dots{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin-top:26px;}
+.tc-dot{
+  width:8px;height:8px;padding:0;border:none;border-radius:50%;cursor:pointer;
+  background:rgba(201,168,76,.28);transition:background .3s var(--ease),transform .3s var(--ease),width .3s var(--ease);
+}
+.tc-dot:hover{background:rgba(201,168,76,.55);}
+.tc-dot.is-active{background:var(--gold-light);width:22px;border-radius:5px;}
+.tc-dot:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px;}
+@media(max-width:900px){ .test-track > .test-card{flex-basis:calc((100% - 22px)/2);} }
+@media(max-width:620px){ .test-track > .test-card{flex-basis:88%;} .tc-arrow{display:none;} }
+@media(prefers-reduced-motion: reduce){ .test-track{scroll-behavior:auto;} }
 
 /* ===========================================================
    13. FAQ
@@ -1121,36 +1163,114 @@ body.consent-pending .sticky-cta{display:none !important;}
   <div class="paper-texture" aria-hidden="true"></div>
   <div class="wrap center">
     <span class="section-label reveal"><span class="star">✦</span> What Students Say <span class="star">✦</span></span>
-    <div class="reveal"><span class="preply-badge">
+    <div class="reveal"><a class="preply-badge" href="https://preply.com/en/tutor/6082510" target="_blank" rel="noopener" aria-label="5.0 rating from 32 reviews on Preply — opens Antoine's Preply profile">
       <span class="stars">★★★★★</span>
       <span class="pb-txt"><b>5.0</b> · 32 reviews on Preply</span>
-    </span></div>
+    </a></div>
     <h2 class="section-title reveal" id="test-title" style="margin-top:6px">Trusted by learners <em>worldwide</em></h2>
-    <div class="test-grid" style="text-align:left">
-      <figure class="test-card tilt reveal" data-delay="1" style="margin:0">
-        <blockquote class="test-quote" lang="fr" style="margin:0">Antoine est très patient, et ses leçons sont toujours amusantes et engageantes. J'attends toujours nos séances avec impatience. J'apprécie également la façon dont il adapte chaque leçon à mes besoins.</blockquote>
-        <p class="test-translation"><span class="tt-tag">Translated from French</span>Antoine is very patient, and his lessons are always fun and engaging. I always look forward to our sessions. I also appreciate how he tailors each lesson to my needs.</p>
-        <figcaption class="test-foot">
-          <span class="test-av" aria-hidden="true">N</span>
-          <span><span class="test-name">Nikki</span><br><span class="test-stars">★★★★★</span></span>
-        </figcaption>
-      </figure>
-      <figure class="test-card tilt reveal" data-delay="2" style="margin:0">
-        <blockquote class="test-quote" lang="fr" style="margin:0">Antoine est très patient et gentil, il a aidé mon français de mille façons. Ses explications sont toujours claires et il sait exactement comment débloquer les points difficiles.</blockquote>
-        <p class="test-translation"><span class="tt-tag">Translated from French</span>Antoine is very patient and kind — he has helped my French in a thousand ways. His explanations are always clear, and he knows exactly how to unlock the tricky points.</p>
-        <figcaption class="test-foot">
-          <span class="test-av" aria-hidden="true">M</span>
-          <span><span class="test-name">Michael</span><br><span class="test-stars">★★★★★</span></span>
-        </figcaption>
-      </figure>
-      <figure class="test-card tilt reveal" data-delay="3" style="margin:0">
-        <blockquote class="test-quote" lang="fr" style="margin:0">Antoine adapte les leçons à mon niveau et m'aide vraiment à m'améliorer ! Chaque séance est bien structurée et je repars toujours avec quelque chose de concret à pratiquer.</blockquote>
-        <p class="test-translation"><span class="tt-tag">Translated from French</span>Antoine adapts the lessons to my level and really helps me improve! Every session is well structured, and I always leave with something concrete to practise.</p>
-        <figcaption class="test-foot">
-          <span class="test-av" aria-hidden="true">S</span>
-          <span><span class="test-name">Sarah</span><br><span class="test-stars">★★★★★</span></span>
-        </figcaption>
-      </figure>
+    <div class="test-carousel reveal">
+      <button class="tc-arrow tc-prev" type="button" aria-label="Previous reviews">‹</button>
+      <div class="test-track" role="list" tabindex="0" aria-label="Student reviews from Preply">
+
+        <figure class="test-card tilt" role="listitem" style="margin:0">
+          <blockquote class="test-quote" style="margin:0">Antoine is so patient, and his lessons are always fun and engaging. I look forward to every session, and I love how he tailors each lesson to the way I learn.</blockquote>
+          <figcaption class="test-foot">
+            <span class="test-av" aria-hidden="true">N</span>
+            <span><span class="test-name">Nikki</span><br><span class="test-stars">★★★★★</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="test-card tilt" role="listitem" style="margin:0">
+          <blockquote class="test-quote" style="margin:0">Antoine is a wonderful tutor! He's made learning a new language genuinely fun, and works with me on the small details so I really learn to speak, read and write like a native. I can see how much I've progressed in just a few months.</blockquote>
+          <figcaption class="test-foot">
+            <span class="test-av" aria-hidden="true">L</span>
+            <span><span class="test-name">Lindsey</span><br><span class="test-stars">★★★★★</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="test-card tilt" role="listitem" style="margin:0">
+          <blockquote class="test-quote" style="margin:0">A fantastic teacher — friendly, easy-going and endlessly patient, which makes every lesson enjoyable and stress-free. Even when things got difficult, he motivated me to push through. My spoken French has improved dramatically!</blockquote>
+          <figcaption class="test-foot">
+            <span class="test-av" aria-hidden="true">S</span>
+            <span><span class="test-name">Stephen</span><br><span class="test-stars">★★★★★</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="test-card tilt" role="listitem" style="margin:0">
+          <blockquote class="test-quote" style="margin:0">A truly wonderful French teacher — kind, respectful and genuinely supportive. He moves at the student's pace, remembers what we covered in previous lessons, and always ties things together in a way that makes sense. Every class feels relevant to my goals.</blockquote>
+          <figcaption class="test-foot">
+            <span class="test-av" aria-hidden="true">R</span>
+            <span><span class="test-name">Renato</span><br><span class="test-stars">★★★★★</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="test-card tilt" role="listitem" style="margin:0">
+          <blockquote class="test-quote" style="margin:0">Antoine is very patient and kind — he has helped my French in a thousand ways. His explanations are always clear, and he knows exactly how to unlock the tricky points.</blockquote>
+          <figcaption class="test-foot">
+            <span class="test-av" aria-hidden="true">M</span>
+            <span><span class="test-name">Michael</span><br><span class="test-stars">★★★★★</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="test-card tilt" role="listitem" style="margin:0">
+          <blockquote class="test-quote" style="margin:0">Antoine is a patient, professional teacher. His explanations are clear and his teaching style is really effective. Highly recommended!</blockquote>
+          <figcaption class="test-foot">
+            <span class="test-av" aria-hidden="true">L</span>
+            <span><span class="test-name">Léa</span><br><span class="test-stars">★★★★★</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="test-card tilt" role="listitem" style="margin:0">
+          <blockquote class="test-quote" style="margin:0">Antoine is incredible! He breaks learning a new language down into manageable pieces and takes his time helping you with pronunciation, grammar and comprehension. Very patient throughout.</blockquote>
+          <figcaption class="test-foot">
+            <span class="test-av" aria-hidden="true">J</span>
+            <span><span class="test-name">Jake</span><br><span class="test-stars">★★★★★</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="test-card tilt" role="listitem" style="margin:0">
+          <blockquote class="test-quote" style="margin:0">An excellent teacher — patient and well-organised. He's helped me improve my pronunciation so much, and plans engaging, easy-to-follow activities that make learning enjoyable. I really value his lessons.</blockquote>
+          <figcaption class="test-foot">
+            <span class="test-av" aria-hidden="true">J</span>
+            <span><span class="test-name">Jessica</span><br><span class="test-stars">★★★★★</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="test-card tilt" role="listitem" style="margin:0">
+          <blockquote class="test-quote" style="margin:0">I'm making huge progress with Antoine. His lesson plans are built around my ability, and I finish every lesson feeling like I've learned a lot!</blockquote>
+          <figcaption class="test-foot">
+            <span class="test-av" aria-hidden="true">E</span>
+            <span><span class="test-name">Ebony</span><br><span class="test-stars">★★★★★</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="test-card tilt" role="listitem" style="margin:0">
+          <blockquote class="test-quote" style="margin:0">Learning French with Antoine has been incredibly rewarding. Through dynamic, interactive sessions I've covered a huge range of topics, and he's given me a solid vocabulary base — I now feel ready to tackle the exam with confidence.</blockquote>
+          <figcaption class="test-foot">
+            <span class="test-av" aria-hidden="true">M</span>
+            <span><span class="test-name">Mariia</span><br><span class="test-stars">★★★★★</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="test-card tilt" role="listitem" style="margin:0">
+          <blockquote class="test-quote" style="margin:0">Antoine tailors the lessons to my level and genuinely helps me improve! Every session is well structured, and I always leave with something concrete to practise.</blockquote>
+          <figcaption class="test-foot">
+            <span class="test-av" aria-hidden="true">S</span>
+            <span><span class="test-name">Sarah</span><br><span class="test-stars">★★★★★</span></span>
+          </figcaption>
+        </figure>
+
+        <figure class="test-card tilt" role="listitem" style="margin:0">
+          <blockquote class="test-quote" style="margin:0">The perfect teacher for the DELF!</blockquote>
+          <figcaption class="test-foot">
+            <span class="test-av" aria-hidden="true">J</span>
+            <span><span class="test-name">Jaynie</span><br><span class="test-stars">★★★★★</span></span>
+          </figcaption>
+        </figure>
+
+      </div>
+      <button class="tc-arrow tc-next" type="button" aria-label="Next reviews">›</button>
+      <div class="tc-dots" role="tablist" aria-label="Review pages"></div>
     </div>
   </div>
 </section>
@@ -1488,6 +1608,105 @@ document.addEventListener('DOMContentLoaded', function(){
           });
         })(tiltEls[ti]);
       }
+    }
+  } catch(e){}
+
+  /* ---- Feature 9: testimonials carousel (fluid, auto-advancing, swipe + keyboard) ---- */
+  try {
+    var carousel = document.querySelector('.test-carousel');
+    if (carousel){
+      var track = carousel.querySelector('.test-track');
+      var cards = track ? track.querySelectorAll('.test-card') : [];
+      var prevBtn = carousel.querySelector('.tc-prev');
+      var nextBtn = carousel.querySelector('.tc-next');
+      var dotsWrap = carousel.querySelector('.tc-dots');
+      var dots = [];
+
+      function perView(){
+        var w = window.innerWidth;
+        if (w <= 620) return 1;
+        if (w <= 900) return 2;
+        return 3;
+      }
+      function step(){
+        if (cards.length < 2) return track.clientWidth;
+        return Math.round(cards[1].getBoundingClientRect().left - cards[0].getBoundingClientRect().left);
+      }
+      function maxIndex(){ return Math.max(0, cards.length - perView()); }
+      function currentIndex(){ return step() ? Math.round(track.scrollLeft / step()) : 0; }
+
+      function goTo(i){
+        i = Math.max(0, Math.min(i, maxIndex()));
+        track.scrollTo({ left: i * step(), behavior: reduceMotion ? 'auto' : 'smooth' });
+      }
+      function nextSlide(){ var i = currentIndex(); goTo(i >= maxIndex() ? 0 : i + 1); }
+      function prevSlide(){ var i = currentIndex(); goTo(i <= 0 ? maxIndex() : i - 1); }
+
+      function buildDots(){
+        if (!dotsWrap) return;
+        dotsWrap.innerHTML = '';
+        dots = [];
+        var pages = maxIndex() + 1;
+        for (var i = 0; i < pages; i++){
+          (function(idx){
+            var b = document.createElement('button');
+            b.className = 'tc-dot';
+            b.type = 'button';
+            b.setAttribute('role', 'tab');
+            b.setAttribute('aria-label', 'Show reviews starting at ' + (idx + 1));
+            b.addEventListener('click', function(){ goTo(idx); restart(); });
+            dotsWrap.appendChild(b);
+            dots.push(b);
+          })(i);
+        }
+      }
+      function updateDots(){
+        if (!dots.length) return;
+        var idx = Math.min(currentIndex(), dots.length - 1);
+        for (var i = 0; i < dots.length; i++){
+          var on = (i === idx);
+          dots[i].classList.toggle('is-active', on);
+          dots[i].setAttribute('aria-selected', on ? 'true' : 'false');
+        }
+      }
+
+      if (nextBtn) nextBtn.addEventListener('click', function(){ nextSlide(); restart(); });
+      if (prevBtn) prevBtn.addEventListener('click', function(){ prevSlide(); restart(); });
+
+      track.addEventListener('keydown', function(ev){
+        if (ev.key === 'ArrowRight'){ ev.preventDefault(); nextSlide(); restart(); }
+        else if (ev.key === 'ArrowLeft'){ ev.preventDefault(); prevSlide(); restart(); }
+      });
+
+      var timer = null, paused = false;
+      function start(){ if (reduceMotion || paused) return; stop(); timer = setInterval(nextSlide, 4800); }
+      function stop(){ if (timer){ clearInterval(timer); timer = null; } }
+      function restart(){ stop(); start(); }
+
+      function hold(){ paused = true; stop(); }
+      function release(){ paused = false; start(); }
+      carousel.addEventListener('mouseenter', hold);
+      carousel.addEventListener('mouseleave', release);
+      carousel.addEventListener('focusin', hold);
+      carousel.addEventListener('focusout', release);
+      track.addEventListener('touchstart', hold, { passive: true });
+
+      var scrollTick = false;
+      track.addEventListener('scroll', function(){
+        if (!scrollTick){
+          window.requestAnimationFrame(function(){ updateDots(); scrollTick = false; });
+          scrollTick = true;
+        }
+      });
+      var rz = null;
+      window.addEventListener('resize', function(){
+        clearTimeout(rz);
+        rz = setTimeout(function(){ buildDots(); updateDots(); }, 180);
+      });
+
+      buildDots();
+      updateDots();
+      start();
     }
   } catch(e){}
 
