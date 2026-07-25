@@ -491,6 +491,16 @@ em{font-style:italic;}
 .coach-reassure{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:22px;}
 .coach-reassure span{font-size:13.5px;color:var(--muted);}
 .coach-disclaimer{font-size:12.5px;color:#8a7a58;margin-top:22px;font-style:italic;}
+/* 2-column coaching layout: photo left, ticket right */
+.coach-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;max-width:1120px;margin:44px auto 0;}
+.coach-grid .coach-slip{max-width:none;margin:0;}
+.coach-photo{margin:0;position:relative;}
+.coach-photo img{width:100%;display:block;border-radius:14px;border:1px solid var(--border);box-shadow:0 26px 60px rgba(26,18,8,.22);}
+.coach-photo figcaption{margin-top:14px;text-align:center;font-family:'Inter',sans-serif;font-size:12.5px;letter-spacing:.03em;color:var(--gold-deep);display:flex;align-items:center;justify-content:center;gap:8px;}
+.cp-dot{width:8px;height:8px;border-radius:50%;background:#d9483b;box-shadow:0 0 0 0 rgba(217,72,59,.5);animation:cpPulse 2s infinite;flex:none;}
+@keyframes cpPulse{0%{box-shadow:0 0 0 0 rgba(217,72,59,.5)}70%{box-shadow:0 0 0 8px rgba(217,72,59,0)}100%{box-shadow:0 0 0 0 rgba(217,72,59,0)}}
+@media (prefers-reduced-motion: reduce){.cp-dot{animation:none;}}
+@media (max-width:860px){.coach-grid{grid-template-columns:1fr;gap:30px;max-width:560px;}}
 
 /* ===========================================================
    11. INSTRUCTOR
@@ -1094,7 +1104,13 @@ body.consent-pending .sticky-cta{display:none !important;}
   <div class="wrap center">
     <span class="section-label reveal"><span class="star">✦</span> Private Session <span class="star">✦</span></span>
     <h2 class="section-title reveal" style="font-size:clamp(26px,4.5vw,40px)">A rehearsal before <em>the real thing</em></h2>
-    <div class="coach-slip reveal-zoom">
+    <div class="coach-grid">
+      <figure class="coach-photo reveal">
+        <img src="images/coaching-session.jpg" width="1200" height="666" loading="lazy" decoding="async"
+             alt="A live one-to-one DELF B1 oral rehearsal on a video call between Antoine and a student">
+        <figcaption><span class="cp-dot" aria-hidden="true"></span> A real 1-to-1 oral rehearsal — live on video</figcaption>
+      </figure>
+      <div class="coach-slip reveal-zoom">
       <div class="coach-top">
         <div class="coach-tag">Reserved Appointment · One to One</div>
         <h2 id="coach-title">Practice your Speaking exam — <em>live, with me</em></h2>
@@ -1117,6 +1133,7 @@ body.consent-pending .sticky-cta{display:none !important;}
           <span>💬 Immediate spoken feedback</span>
         </div>
         <p class="coach-disclaimer">Available to everyone — course purchase not required. Booking and secure payment are handled through my Google Calendar.</p>
+      </div>
       </div>
     </div>
   </div>
