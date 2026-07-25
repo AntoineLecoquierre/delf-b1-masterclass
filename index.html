@@ -270,10 +270,15 @@ em{font-style:italic;}
 .price-note .star{color:var(--gold-deep);}
 
 /* hero CTA + hero media (Live Preview in the hero) */
-.hero-actions{margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px;}
+.hero-actions{margin-top:32px;display:flex;flex-wrap:wrap;align-items:flex-start;gap:14px 22px;}
 .hero-actions .btn-gold{font-size:16px;padding:15px 32px;}
 .hero-actions-note{font-size:12.5px;color:#bcd0c8;letter-spacing:.02em;}
 .hero-actions-note .star{color:var(--gold-light);}
+.hero-cta-row{display:flex;align-items:center;flex-wrap:wrap;gap:14px 22px;width:100%;}
+.hero-price{display:flex;align-items:baseline;gap:11px;}
+.hero-price .hp-now{font-family:'Playfair Display',serif;font-weight:900;font-size:34px;line-height:1;color:var(--cream);}
+.hero-price .hp-was{font-size:16px;color:#8ba79b;text-decoration:line-through;}
+.hero-price .hp-save{align-self:center;font-family:'Inter',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:#231a07;background:linear-gradient(180deg,var(--gold-light),var(--gold));padding:5px 11px;border-radius:999px;box-shadow:0 4px 12px rgba(201,168,76,.28);}
 .hero-media{position:relative;z-index:2;}
 .hero-media .peek-video{margin:0;max-width:none;box-shadow:0 26px 64px rgba(0,0,0,.5);}
 @media (max-width:860px){
@@ -959,7 +964,14 @@ body.consent-pending .sticky-cta{display:none !important;}
         <span class="pill"><b>∞</b><span>Lifetime Access</span></span>
       </div>
       <div class="hero-actions">
-        <a class="btn btn-gold" href="https://delfb1.gumroad.com/l/cwgpqw?wanted=true">Enroll in the Course →</a>
+        <div class="hero-cta-row">
+          <div class="hero-price">
+            <span class="hp-now">$69</span>
+            <span class="hp-was">€120</span>
+            <span class="hp-save">Save 59%</span>
+          </div>
+          <a class="btn btn-gold" href="https://delfb1.gumroad.com/l/cwgpqw?wanted=true">Enroll in the Course →</a>
+        </div>
         <span class="hero-actions-note"><span class="star">✦</span> Lifetime access · all future updates included</span>
       </div>
     </div>
