@@ -428,10 +428,12 @@ em{font-style:italic;}
   padding:36px 30px 32px;text-align:center;min-height:322px;
   display:flex;flex-direction:column;align-items:center;box-shadow:0 14px 34px rgba(20,40,40,.08);
   transition:border-color .3s ease,box-shadow .3s ease;}
-.zs-icon{width:98px;height:98px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:44px;line-height:1;color:var(--gold-deep);background:linear-gradient(180deg,#ffffff,var(--cream));
-  border:1.5px solid var(--gold);box-shadow:0 10px 26px rgba(169,134,63,.22);margin-bottom:22px;
+.zs-icon{width:104px;height:104px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+  background:radial-gradient(125% 125% at 32% 24%, #fffdf6 0%, #f7edd2 40%, #ecd9a8 72%, #d9bd7e 100%);
+  border:1px solid rgba(201,168,76,.55);
+  box-shadow:0 16px 30px rgba(120,88,28,.30), inset 0 3px 6px rgba(255,255,255,.9), inset 0 -9px 16px rgba(150,110,40,.30);
   transform:scale(.8);transition:transform .12s linear;will-change:transform;pointer-events:none;}
+.zs-icon svg{width:48px;height:48px;filter:drop-shadow(0 2px 2px rgba(90,60,10,.28));}
 .zs-card h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);margin:0 0 9px;}
 .zs-card p{margin:0;font-size:14.5px;line-height:1.55;color:var(--muted);max-width:290px;}
 .zs-slide.is-center .zs-card{border-color:var(--gold);box-shadow:0 24px 54px rgba(20,40,40,.16);}
@@ -444,7 +446,14 @@ em{font-style:italic;}
 .zs-dot{width:8px;height:8px;border-radius:50%;border:none;padding:0;cursor:pointer;background:rgba(169,134,63,.3);transition:background .2s,transform .2s;}
 .zs-dot.is-active{background:var(--gold);transform:scale(1.35);}
 .zs-hint{text-align:center;margin:12px 0 0;font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);opacity:.7;}
-@media(max-width:640px){.zoom-slider{--sw:82%;} .zs-card{min-height:300px;} .zs-btn{width:38px;height:38px;font-size:21px;}}
+@media(max-width:640px){
+  .zoom-slider{--sw:74%;}
+  .zs-slide{padding:0 8px;}
+  .zs-card{min-height:268px;padding:30px 20px 26px;}
+  .zs-icon{width:90px;height:90px;} .zs-icon svg{width:42px;height:42px;}
+  .zs-card h3{font-size:19px;} .zs-card p{font-size:14px;}
+  .zs-btn{width:36px;height:36px;font-size:20px;}
+}
 
 /* ===========================================================
    10. 1-TO-1 SPEAKING PRACTICE
@@ -1053,27 +1062,27 @@ body.consent-pending .sticky-cta{display:none !important;}
       <div class="zs-viewport">
         <div class="zs-track">
           <div class="zs-slide"><div class="zs-card">
-            <span class="zs-icon" aria-hidden="true">▷</span>
+            <span class="zs-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#17324a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6.5" width="13" height="11" rx="2.5"/><path d="M15.5 10.5l5-2.8v8.6l-5-2.8z"/></svg></span>
             <h3>5 video modules</h3>
             <p>Clear, animated lessons for every exam section — with English subtitles included.</p>
           </div></div>
           <div class="zs-slide"><div class="zs-card">
-            <span class="zs-icon" aria-hidden="true">❧</span>
+            <span class="zs-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#17324a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 2.5h7l5 5v12.5a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 5 20V4a1.5 1.5 0 0 1 1.5-1.5z"/><path d="M13.5 2.5v5h5"/><path d="M8.5 13h7M8.5 16.5h7"/></svg></span>
             <h3>6 PDF guides</h3>
             <p>Grammar Reference, Listening Pack, Reading Pack, Writing Pack, Speaking Pack &amp; Study Plan.</p>
           </div></div>
           <div class="zs-slide"><div class="zs-card">
-            <span class="zs-icon" aria-hidden="true">✎</span>
+            <span class="zs-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#17324a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="M8.5 13.5l2.2 2.2L15.5 11"/></svg></span>
             <h3>Practice exercises</h3>
             <p>Exam-authentic practice with clear explanations.</p>
           </div></div>
           <div class="zs-slide"><div class="zs-card">
-            <span class="zs-icon" aria-hidden="true">◷</span>
+            <span class="zs-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#17324a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M8 13h2M14 13h2M8 16.5h2M14 16.5h2"/></svg></span>
             <h3>4–6 week study plan</h3>
             <p>A day-by-day path from start to exam-ready.</p>
           </div></div>
           <div class="zs-slide"><div class="zs-card">
-            <span class="zs-icon" aria-hidden="true">∞</span>
+            <span class="zs-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#17324a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.8 8.5a3.5 3.5 0 1 0 0 7c1.9 0 3.1-1.8 5.2-3.5 2.1-1.7 3.3-3.5 5.2-3.5a3.5 3.5 0 1 1 0 7c-1.9 0-3.1-1.8-5.2-3.5-2.1-1.7-3.3-3.5-5.2-3.5z"/></svg></span>
             <h3>Lifetime access</h3>
             <p>Yours forever, including all future updates.</p>
           </div></div>
