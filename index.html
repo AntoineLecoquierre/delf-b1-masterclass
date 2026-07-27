@@ -475,65 +475,60 @@ em{font-style:italic;}
    10. 1-TO-1 SPEAKING PRACTICE
    =========================================================== */
 .coach-section{width:100%;background:linear-gradient(160deg,#efe6cf,#e6d9b8);position:relative;overflow:hidden;}
-.coach-slip{
-  max-width:680px;margin:46px auto 0;background:var(--cream-2);
-  border:1px solid var(--border);border-radius:4px;position:relative;
-  box-shadow:0 28px 70px rgba(26,18,8,.18);
-  padding:0;
+/* ===== Private Session — elevated featured card ===== */
+.coach-shell{position:relative;max-width:1040px;margin:46px auto 0;}
+.coach-glow{
+  position:absolute;inset:-8px;border-radius:34px;z-index:0;pointer-events:none;
+  background:conic-gradient(from 0deg,rgba(201,168,76,.95),rgba(26,74,74,.8),rgba(232,201,106,.95),rgba(15,51,51,.75),rgba(201,168,76,.95));
+  filter:blur(30px);opacity:.5;animation:coachSpin 9s linear infinite;
 }
-.coach-slip::before{
-  content:"❧";position:absolute;top:18px;left:50%;transform:translateX(-50%);
-  color:var(--gold-deep);font-size:26px;
+@keyframes coachSpin{to{transform:rotate(360deg);}}
+.coach-card{
+  position:relative;z-index:1;display:grid;grid-template-columns:0.92fr 1.08fr;
+  border-radius:24px;overflow:hidden;
+  background:radial-gradient(130% 130% at 12% 8%,#1a4a4a 0%,#0f3333 52%,#0b2727 100%);
+  border:1px solid rgba(201,168,76,.4);
+  box-shadow:0 42px 92px rgba(11,39,39,.45),inset 0 1px 0 rgba(255,255,255,.06);
 }
-/* perforated ticket edge */
-.coach-top{padding:54px 40px 30px;text-align:center;border-bottom:2px dashed var(--border);position:relative;}
-.coach-top::after,.coach-top::before{
-  content:"";position:absolute;bottom:-11px;width:22px;height:22px;border-radius:50%;
-  background:linear-gradient(160deg,#efe6cf,#e6d9b8);
+.coach-media{position:relative;min-height:100%;overflow:hidden;margin:0;}
+.coach-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.coach-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,rgba(11,39,39,.6));}
+.coach-live{
+  position:absolute;left:16px;bottom:16px;z-index:2;display:flex;align-items:center;gap:8px;
+  background:rgba(11,39,39,.55);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  border:1px solid rgba(201,168,76,.35);border-radius:999px;padding:6px 13px;
+  font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:.02em;color:#f5edd8;
 }
-.coach-top::before{left:-11px;}
-.coach-top::after{right:-11px;}
-.coach-tag{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;}
-.coach-slip h2{font-size:clamp(26px,4.5vw,38px);color:var(--ink);margin:14px 0 0;}
-.coach-slip h2 em{color:var(--gold-deep);font-style:italic;}
-.coach-sub{font-size:16px;color:var(--muted);margin:16px auto 0;max-width:520px;}
-.coach-what{
-  font-family:'IM Fell English',serif;font-style:italic;font-size:17.5px;color:#3a2e16;
-  max-width:540px;margin:22px auto 0;line-height:1.6;
+.coach-body{padding:42px 44px;text-align:left;color:#eaf2ef;display:flex;flex-direction:column;}
+.coach-body .c-tag{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-light);font-weight:700;}
+.coach-body h2{font-family:'Playfair Display',serif;font-size:clamp(23px,2.9vw,31px);line-height:1.16;color:#fbf6e7;margin:12px 0 0;font-weight:700;}
+.coach-body h2 em{color:var(--gold-light);font-style:italic;}
+.coach-body .c-sub{font-size:15px;line-height:1.6;color:#c7d6cf;margin:14px 0 0;}
+.coach-price2{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:24px 0 0;}
+.coach-price2 .now{font-family:'Playfair Display',serif;font-weight:900;font-size:46px;line-height:1;color:#fbf6e7;}
+.coach-price2 .was{font-size:18px;color:#94aaa1;text-decoration:line-through;}
+.coach-price2 .save{align-self:center;font-family:'Inter',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:#231a07;background:linear-gradient(180deg,var(--gold-light),var(--gold));padding:5px 11px;border-radius:999px;box-shadow:0 4px 12px rgba(201,168,76,.28);}
+.coach-price2 .unit{flex-basis:100%;font-size:12.5px;color:#94aaa1;margin-top:2px;}
+.coach-reassure2{display:flex;flex-wrap:wrap;gap:10px 18px;margin:20px 0 0;}
+.coach-reassure2 span{font-size:13px;color:#c7d6cf;display:flex;align-items:center;gap:6px;}
+.coach-body .btn-book{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;align-self:flex-start;margin:26px 0 0;
+  font-family:'Inter',sans-serif;font-weight:600;font-size:15.5px;letter-spacing:.02em;text-decoration:none;
+  background:linear-gradient(180deg,var(--gold-light),var(--gold));color:#231a07;padding:15px 30px;border-radius:4px;
+  box-shadow:0 12px 28px rgba(201,168,76,.3);transition:transform .2s var(--ease),box-shadow .2s var(--ease);
 }
-.coach-bottom{padding:30px 40px 40px;text-align:center;}
-.coach-price{display:flex;align-items:baseline;justify-content:center;gap:12px;flex-wrap:wrap;}
-.coach-price .now{font-family:'Playfair Display',serif;font-size:46px;font-weight:900;color:var(--teal);line-height:1;}
-.coach-price .was{font-size:18px;color:var(--muted);text-decoration:line-through;}
-.coach-price .unit{font-size:14px;color:var(--muted);}
-.coach-badge{
-  display:inline-block;margin:12px auto 0;background:rgba(15,51,51,.08);
-  border:1px solid rgba(15,51,51,.2);border-radius:2px;padding:6px 14px;
-  font-size:13px;color:var(--teal);font-weight:500;
+.coach-body .btn-book:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(201,168,76,.42);}
+.coach-body .c-disc{font-size:12px;color:#8fa39b;margin:16px 0 0;font-style:italic;}
+.cp-dot{width:8px;height:8px;border-radius:50%;background:#ff5a4d;box-shadow:0 0 0 0 rgba(255,90,77,.5);animation:cpPulse 2s infinite;flex:none;}
+@keyframes cpPulse{0%{box-shadow:0 0 0 0 rgba(255,90,77,.5)}70%{box-shadow:0 0 0 8px rgba(255,90,77,0)}100%{box-shadow:0 0 0 0 rgba(255,90,77,0)}}
+@media (prefers-reduced-motion: reduce){.cp-dot{animation:none;}.coach-glow{animation:none;}}
+@media (max-width:820px){
+  .coach-card{grid-template-columns:1fr;}
+  .coach-media{min-height:236px;}
+  .coach-media::after{background:linear-gradient(0deg,rgba(11,39,39,.6),transparent 55%);}
+  .coach-body{padding:30px 26px 34px;}
+  .coach-body .btn-book{align-self:stretch;}
 }
-.coach-badge b{color:var(--gold-deep);}
-.coach-section .btn-coach{margin-top:22px;}
-.coach-reassure{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:22px;}
-.coach-reassure span{font-size:13.5px;color:var(--muted);}
-.coach-disclaimer{font-size:12.5px;color:#8a7a58;margin-top:22px;font-style:italic;}
-/* 2-column coaching layout: photo left (larger), ticket right (narrower) */
-.coach-grid{display:grid;grid-template-columns:1.3fr 0.9fr;gap:40px;align-items:center;max-width:1160px;margin:44px auto 0;}
-.coach-grid .coach-slip{max-width:none;margin:0;}
-.coach-grid .coach-top{padding:42px 30px 26px;}
-.coach-grid .coach-bottom{padding:26px 30px 34px;}
-.coach-grid .coach-slip h2{font-size:clamp(21px,2.7vw,29px);margin-top:12px;}
-.coach-grid .coach-sub{font-size:14.5px;margin-top:12px;}
-.coach-grid .coach-what{font-size:15px;margin-top:16px;}
-.coach-grid .coach-price .now{font-size:40px;}
-.coach-grid .coach-badge{font-size:12.5px;}
-.coach-grid .coach-reassure span{font-size:12.5px;}
-.coach-photo{margin:0;position:relative;}
-.coach-photo img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--border);box-shadow:0 26px 60px rgba(26,18,8,.22);}
-.coach-photo figcaption{margin-top:14px;text-align:center;font-family:'Inter',sans-serif;font-size:12.5px;letter-spacing:.03em;color:var(--gold-deep);display:flex;align-items:center;justify-content:center;gap:8px;}
-.cp-dot{width:8px;height:8px;border-radius:50%;background:#d9483b;box-shadow:0 0 0 0 rgba(217,72,59,.5);animation:cpPulse 2s infinite;flex:none;}
-@keyframes cpPulse{0%{box-shadow:0 0 0 0 rgba(217,72,59,.5)}70%{box-shadow:0 0 0 8px rgba(217,72,59,0)}100%{box-shadow:0 0 0 0 rgba(217,72,59,0)}}
-@media (prefers-reduced-motion: reduce){.cp-dot{animation:none;}}
-@media (max-width:860px){.coach-grid{grid-template-columns:1fr;gap:30px;max-width:560px;}}
 
 /* ===========================================================
    11. INSTRUCTOR
@@ -1111,35 +1106,32 @@ body.consent-pending .sticky-cta{display:none !important;}
   <div class="wrap center">
     <span class="section-label reveal"><span class="star">✦</span> Private Session <span class="star">✦</span></span>
     <h2 class="section-title reveal" style="font-size:clamp(26px,4.5vw,40px)">A rehearsal before <em>the real thing</em></h2>
-    <div class="coach-grid">
-      <figure class="coach-photo reveal">
-        <img src="images/coaching-session.jpg" width="1200" height="666" loading="lazy" decoding="async"
-             alt="A live one-to-one DELF B1 oral rehearsal on a video call between Antoine and a student">
-        <figcaption><span class="cp-dot" aria-hidden="true"></span> A real 1-to-1 oral rehearsal — live on video</figcaption>
-      </figure>
-      <div class="coach-slip reveal-zoom">
-      <div class="coach-top">
-        <div class="coach-tag">Reserved Appointment · One to One</div>
-        <h2 id="coach-title">Practice your Speaking exam — <em>live, with me</em></h2>
-        <p class="coach-sub">A focused 50-minute live session to rehearse the full DELF B1 oral — monologue, dialogue &amp; point of view — with real-time, examiner-style feedback.</p>
-      </div>
-      <div class="coach-bottom">
-        <div class="coach-price">
-          <span class="now">$39</span>
-          <span class="was">$47</span>
-          <span class="unit">/ 50-minute session</span>
+    <div class="coach-shell reveal-zoom">
+      <div class="coach-glow" aria-hidden="true"></div>
+      <div class="coach-card">
+        <figure class="coach-media">
+          <img src="images/coaching-session.jpg" width="1200" height="666" loading="lazy" decoding="async"
+               alt="A live one-to-one DELF B1 oral rehearsal on a video call between Antoine and a student">
+          <figcaption class="coach-live"><span class="cp-dot" aria-hidden="true"></span> Live 1-to-1 oral rehearsal</figcaption>
+        </figure>
+        <div class="coach-body">
+          <span class="c-tag">Reserved Appointment · One to One</span>
+          <h2 id="coach-title">Practice your Speaking exam — <em>live, with me</em></h2>
+          <p class="c-sub">A focused 50-minute live session to rehearse the full DELF B1 oral — monologue, dialogue &amp; point of view — with real-time, examiner-style feedback.</p>
+          <div class="coach-price2">
+            <span class="now">€35</span>
+            <span class="was">€55</span>
+            <span class="save">Save 36%</span>
+            <span class="unit">per 50-minute session · pay per session, no subscription</span>
+          </div>
+          <div class="coach-reassure2">
+            <span>🎥 Live 1:1 video call</span>
+            <span>🗣️ Real exam-format practice</span>
+            <span>💬 Immediate spoken feedback</span>
+          </div>
+          <a class="btn-book" href="https://calendar.app.google/zLv38h61LrjYUsmw5" target="_blank" rel="noopener noreferrer">Book My Practice Session ↗</a>
+          <p class="c-disc">Secure payment · no course purchase required · booking via Google Calendar.</p>
         </div>
-        <div class="coach-badge"><b>Launch rate — save 17%.</b> Secure payment · pay per session, no subscription.</div>
-        <div>
-          <a class="btn btn-coach" href="https://calendar.app.google/zLv38h61LrjYUsmw5" target="_blank" rel="noopener noreferrer">Book My Practice Session ↗</a>
-        </div>
-        <div class="coach-reassure">
-          <span>🎥 Live 1:1 video call</span>
-          <span>🗣️ Real exam-format practice</span>
-          <span>💬 Immediate spoken feedback</span>
-        </div>
-        <p class="coach-disclaimer">No course purchase required · booking via Google Calendar.</p>
-      </div>
       </div>
     </div>
   </div>
