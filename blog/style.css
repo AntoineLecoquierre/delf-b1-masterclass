@@ -103,6 +103,19 @@ a:hover{text-decoration:underline;}
 .bl-note.dark{background:var(--teal);border-color:var(--teal);border-left-color:var(--gold-light);color:#eef2f7;}
 .bl-note.dark b{color:var(--gold-light);}
 
+/* ---- free download strip ---- */
+.bl-free{
+  margin:26px 0;padding:16px 20px;border-radius:6px;font-size:15.5px;line-height:1.6;
+  background:linear-gradient(160deg,#efe6cf,#e6d9b8);
+  border:1px solid var(--border);color:#4a3a1c;
+}
+.bl-free .bf-k{
+  display:block;font-size:11.5px;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--gold-deep);margin-bottom:5px;
+}
+.bl-free b{color:var(--teal);}
+.bl-free a{font-weight:600;white-space:nowrap;}
+
 /* ---- table ---- */
 .bl-table{width:100%;border-collapse:collapse;margin:22px 0;font-size:15.5px;overflow:hidden;border-radius:6px;box-shadow:0 2px 0 var(--border-soft);}
 .bl-table th{background:var(--teal);color:var(--gold-light);text-align:left;padding:12px 14px;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;letter-spacing:.04em;text-transform:uppercase;}

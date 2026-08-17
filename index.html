@@ -525,6 +525,41 @@ em{font-style:italic;}
 }
 
 /* ===========================================================
+   12b. FREE CHEAT SHEET (lead magnet)
+   =========================================================== */
+.lm-section{background:linear-gradient(160deg,#efe6cf,#e6d9b8);}
+.lm-grid{
+  display:grid;grid-template-columns:minmax(0,0.82fr) minmax(0,1.18fr);
+  gap:56px;align-items:center;max-width:1000px;margin:0 auto;
+}
+.lm-visual img{
+  width:100%;height:auto;border-radius:4px;
+  border:1px solid rgba(138,109,42,.35);
+  box-shadow:0 22px 50px rgba(26,18,8,.24);
+  transform:rotate(-1.6deg);transition:transform .35s var(--ease);
+}
+.lm-visual img:hover{transform:rotate(0deg) translateY(-3px);}
+.lm-title{
+  font-size:clamp(26px,3.6vw,38px);color:var(--ink);letter-spacing:-.01em;margin:0;
+}
+.lm-title em{color:var(--gold-deep);font-style:italic;}
+.lm-lead{margin:16px 0 0;color:#4a3a1c;font-size:17px;line-height:1.6;}
+.lm-list{list-style:none;margin:20px 0 26px;padding:0;}
+.lm-list li{
+  position:relative;padding:8px 0 8px 26px;font-size:15.5px;color:var(--muted);
+  border-bottom:1px dashed rgba(92,74,42,.16);
+}
+.lm-list li:last-child{border-bottom:0;}
+.lm-list li::before{content:"✦";position:absolute;left:0;top:8px;color:var(--gold-deep);font-size:14px;}
+.lm-note{margin:14px 0 0;font-size:12.5px;color:var(--muted);opacity:.85;}
+@media (max-width:820px){
+  .lm-grid{grid-template-columns:1fr;gap:34px;}
+  .lm-visual{max-width:280px;margin:0 auto;}
+  .lm-body{text-align:center;}
+  .lm-list{text-align:left;max-width:440px;margin-left:auto;margin-right:auto;}
+}
+
+/* ===========================================================
    10. 1-TO-1 SPEAKING PRACTICE
    =========================================================== */
 .coach-section{width:100%;background:linear-gradient(160deg,#efe6cf,#e6d9b8);position:relative;overflow:hidden;}
@@ -1404,6 +1439,32 @@ body.consent-pending .sticky-cta{display:none !important;}
           What if the course isn't right for me? <span class="faq-ic" aria-hidden="true"></span>
         </button>
         <div class="faq-a" id="faq6-a" role="region" aria-labelledby="faq6-q"><div class="faq-a-inner">Then you get your money back. There's a <a href="/refund/">14-day money-back guarantee</a> on the course — email me within two weeks of buying and I'll refund you in full, no justification needed.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12b. FREE CHEAT SHEET — lead magnet -->
+<section class="section lm-section on-light" aria-labelledby="lm-title">
+  <div class="wrap">
+    <div class="lm-grid">
+      <div class="lm-visual reveal">
+        <img src="images/cheat-sheet-cover.jpg" width="620" height="876" loading="lazy" decoding="async"
+             alt="The first page of the free DELF B1 Cheat Sheet, showing the exam format table">
+      </div>
+      <div class="lm-body reveal" data-delay="1">
+        <span class="section-label"><span class="star">✦</span> Free Download <span class="star">✦</span></span>
+        <h2 class="lm-title" id="lm-title">Not ready yet? <em>Start with the cheat sheet.</em></h2>
+        <p class="lm-lead">Four pages, no charge — the whole exam laid out the way it is actually marked. It is the first thing I give any student before we begin.</p>
+        <ul class="lm-list">
+          <li>Every section, its timing and its marks in one table</li>
+          <li>The 5&nbsp;/&nbsp;25 rule that fails candidates who score well overall</li>
+          <li>The single highest-leverage habit for each of the four skills</li>
+          <li>24 connectors that make you sound organised — in writing and out loud</li>
+          <li>A six-week plan and an exam-day checklist</li>
+        </ul>
+        <a class="btn btn-gold" href="https://payhip.com/b/VMGvq">Download the Cheat Sheet →</a>
+        <p class="lm-note">Free forever · no card required · unsubscribe whenever you like</p>
       </div>
     </div>
   </div>
