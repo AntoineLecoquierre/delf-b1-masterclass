@@ -285,6 +285,9 @@ em{font-style:italic;}
 .hero-actions .btn-gold{font-size:16px;padding:15px 32px;}
 .hero-actions-note{font-size:12.5px;color:#bcd0c8;letter-spacing:.02em;}
 .hero-actions-note .star{color:var(--gold-light);}
+.hero-actions-note a{color:#d9e6df;text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(217,230,223,.45);}
+.hero-actions-note a:hover{color:var(--gold-light);text-decoration-color:var(--gold-light);}
+.hero-actions-vat{display:block;margin-top:5px;font-size:11.5px;color:#8fa79d;letter-spacing:.02em;}
 .hero-cta-row{display:flex;align-items:center;flex-wrap:wrap;gap:14px 22px;width:100%;}
 .hero-price{display:flex;align-items:baseline;gap:11px;}
 .hero-price .hp-now{font-family:'Playfair Display',serif;font-weight:900;font-size:34px;line-height:1;color:var(--cream);}
@@ -625,6 +628,7 @@ em{font-style:italic;}
 .faq-q[aria-expanded="true"] .faq-ic::after{transform:translate(-50%,-50%) scaleY(0);}
 .faq-a{overflow:hidden;max-height:0;transition:max-height .35s var(--ease);}
 .faq-a-inner{padding:0 4px 24px;font-size:15.5px;color:var(--muted);}
+.faq-a-inner a{color:var(--gold-deep);text-decoration:underline;text-underline-offset:2px;}
 
 /* ===========================================================
    14. FINAL CTA
@@ -648,6 +652,12 @@ em{font-style:italic;}
 .final-was{font-size:22px;color:#a9bdb4;text-decoration:line-through;}
 .final .btn{margin-top:22px;}
 .final-guar{font-size:13px;color:#a9bdb4;margin-top:16px;}
+.final-guar + .final-guar{margin-top:8px;}
+.guar-badge{
+  display:inline-block;padding:7px 16px;border-radius:999px;
+  background:rgba(201,168,76,.13);border:1px solid rgba(201,168,76,.45);
+  color:var(--gold-light);font-size:13px;font-weight:600;letter-spacing:.02em;
+}
 
 /* ===========================================================
    15. STICKY BOTTOM CTA
@@ -675,6 +685,7 @@ em{font-style:italic;}
 .footer a{color:var(--gold-light);text-decoration:none;}
 .footer a:hover{text-decoration:underline;}
 .footer .f-links{margin-top:10px;}
+.footer .f-legal{margin-top:8px;font-size:13.5px;opacity:.72;}
 
 /* ===========================================================
    REVEAL ANIMATIONS
@@ -1000,7 +1011,8 @@ body.consent-pending .sticky-cta{display:none !important;}
         { "@type": "Question", "name": "Is the course really taught in English?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — all explanations are in English. French is used for exam-authentic examples and practice." } },
         { "@type": "Question", "name": "How long do I have access?", "acceptedAnswer": { "@type": "Answer", "text": "Lifetime access, including all future updates to the course at no extra cost." } },
         { "@type": "Question", "name": "How long will it take to complete?", "acceptedAnswer": { "@type": "Answer", "text": "Most students finish in 4–6 weeks at around 30–45 minutes a day. A complete study plan is included." } },
-        { "@type": "Question", "name": "Which DELF B1 session is this for?", "acceptedAnswer": { "@type": "Answer", "text": "It prepares you for the standard DELF B1, which is valid worldwide for any session date." } }
+        { "@type": "Question", "name": "Which DELF B1 session is this for?", "acceptedAnswer": { "@type": "Answer", "text": "It prepares you for the standard DELF B1, which is valid worldwide for any session date." } },
+        { "@type": "Question", "name": "What if the course isn't right for me?", "acceptedAnswer": { "@type": "Answer", "text": "The course comes with a 14-day money-back guarantee. Email within two weeks of buying and you get a full refund, no justification needed." } }
       ]
     }
   ]
@@ -1035,7 +1047,8 @@ body.consent-pending .sticky-cta{display:none !important;}
           </div>
           <a class="btn btn-gold" href="https://payhip.com/order?link=YOo8y">Enroll in the Course →</a>
         </div>
-        <span class="hero-actions-note"><span class="star">✦</span> Lifetime access · all future updates included · price excl. VAT</span>
+        <span class="hero-actions-note"><span class="star">✦</span> Lifetime access · all future updates · <a href="/refund/">14-day money-back guarantee</a></span>
+        <span class="hero-actions-vat">Price excludes VAT — calculated at checkout</span>
       </div>
       <div class="hero-pills">
         <span class="pill"><b>B1</b><span>DELF Level</span></span>
@@ -1270,6 +1283,12 @@ body.consent-pending .sticky-cta{display:none !important;}
         </button>
         <div class="faq-a" id="faq5-a" role="region" aria-labelledby="faq5-q"><div class="faq-a-inner">It prepares you for the standard DELF B1, which is valid worldwide for any session date — the format and criteria are the same wherever you sit it.</div></div>
       </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false" id="faq6-q" aria-controls="faq6-a">
+          What if the course isn't right for me? <span class="faq-ic" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a" id="faq6-a" role="region" aria-labelledby="faq6-q"><div class="faq-a-inner">Then you get your money back. There's a <a href="/refund/">14-day money-back guarantee</a> on the course — email me within two weeks of buying and I'll refund you in full, no justification needed.</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1304,6 +1323,7 @@ body.consent-pending .sticky-cta{display:none !important;}
       <div class="center"><span class="price-save">SAVE 62%</span></div>
       <p class="center" style="font-size:11.5px;color:#a9bdb4;margin:8px 0 0;">Price excl. VAT — tax calculated at checkout</p>
       <div><a class="btn btn-gold" href="https://payhip.com/order?link=YOo8y">Enroll in the Course →</a></div>
+      <p class="final-guar"><span class="guar-badge">✓ 14-day money-back guarantee</span></p>
       <p class="final-guar">Lifetime access · all future updates · taught entirely in English</p>
     </div>
   </div>
@@ -1319,6 +1339,11 @@ body.consent-pending .sticky-cta{display:none !important;}
     <a href="https://payhip.com/order?link=YOo8y">Enroll</a> &nbsp;·&nbsp;
     <a href="/blog/">Blog</a> &nbsp;·&nbsp;
     <a href="https://calendar.app.google/zLv38h61LrjYUsmw5" target="_blank" rel="noopener noreferrer">Book a 1:1 session</a>
+  </div>
+  <div class="f-links f-legal">
+    <a href="/refund/">Refunds</a> &nbsp;·&nbsp;
+    <a href="/terms/">Terms</a> &nbsp;·&nbsp;
+    <a href="/privacy/">Privacy</a>
   </div>
   <div style="margin-top:14px;opacity:.6">© 2026 · All rights reserved</div>
 </footer>
@@ -1337,7 +1362,7 @@ body.consent-pending .sticky-cta{display:none !important;}
 <!-- COOKIE CONSENT BAR -->
 <div class="cookie-bar" id="cookieBar" role="dialog" aria-label="Cookie consent" aria-hidden="true">
   <div class="cookie-inner">
-    <p class="cookie-text">This site uses cookies to measure traffic with Google Analytics and improve the page. Analytics stays off unless you accept — you can decline and keep browsing normally.</p>
+    <p class="cookie-text">This site uses cookies to measure traffic with Google Analytics and improve the page. Analytics stays off unless you accept — you can decline and keep browsing normally. See our <a href="/privacy/">Privacy Policy</a>.</p>
     <div class="cookie-actions">
       <button class="btn btn-ghost" id="cookieDecline" type="button">Decline</button>
       <button class="btn btn-gold" id="cookieAccept" type="button">Accept</button>
