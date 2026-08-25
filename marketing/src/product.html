@@ -1,0 +1,50 @@
+<!doctype html><meta charset="utf-8">
+<style>
+@font-face{font-family:PF;src:url(font6.ttf);font-weight:700;}
+@font-face{font-family:PF;src:url(font7.ttf);font-weight:800;}
+@font-face{font-family:PF;src:url(font5.ttf);font-weight:700;font-style:italic;}
+@font-face{font-family:IN;src:url(font4.ttf);font-weight:400;}
+@font-face{font-family:IN;src:url(font3.ttf);font-weight:500;}
+@font-face{font-family:IN;src:url(font2.ttf);font-weight:600;}
+@font-face{font-family:IN;src:url(font1.ttf);font-weight:700;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:1600px;height:900px;overflow:hidden;background:#0c2a2a;font-family:IN;
+  display:grid;grid-template-columns:600px 1fr;align-items:center;gap:70px;padding:0 96px;position:relative;}
+body::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(1100px 700px at 24% 42%, rgba(212,180,99,.15), transparent 62%);}
+.stack{position:relative;height:660px;display:flex;align-items:center;justify-content:center;}
+.sheet{position:absolute;border-radius:3px;overflow:hidden;}
+.back2{width:380px;transform:translate(46px,-26px) rotate(4.2deg);box-shadow:0 30px 70px rgba(0,0,0,.42);background:#d8d2c4;}
+.back1{width:392px;transform:translate(24px,-13px) rotate(2.1deg);box-shadow:0 34px 76px rgba(0,0,0,.46);background:#ece7db;}
+.front{width:404px;box-shadow:0 44px 96px rgba(0,0,0,.58);}
+.sheet img{display:block;width:100%;height:auto;}
+.back1,.back2{height:571px;}
+.right{position:relative;}
+.eyebrow{font-size:19px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#d4b463;}
+h1{font-family:PF;font-weight:800;font-size:82px;line-height:1.03;color:#f6f1e4;letter-spacing:-.022em;margin-top:26px;}
+h1 em{font-style:italic;font-weight:700;color:#d4b463;}
+.sub{font-family:PF;font-style:italic;font-weight:700;font-size:31px;color:#a9bfb6;margin-top:22px;line-height:1.32;}
+ul{list-style:none;margin-top:40px;}
+li{position:relative;padding-left:34px;font-size:24px;line-height:1.5;color:#cfe0d8;margin-top:17px;}
+li::before{content:"";position:absolute;left:0;top:17px;width:19px;height:2px;background:#a8843c;}
+li b{color:#f6f1e4;font-weight:600;}
+.foot{margin-top:50px;display:flex;align-items:center;gap:18px;}
+.pill{font-size:17px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0c2a2a;background:#d4b463;padding:11px 22px;border-radius:100px;}
+.site{font-size:19px;color:#8aa39a;letter-spacing:.02em;}
+</style>
+<div class="stack">
+  <div class="sheet back2"></div>
+  <div class="sheet back1"></div>
+  <div class="sheet front"><img src="cheat-sheet-cover.jpg"></div>
+</div>
+<div class="right">
+  <div class="eyebrow">Free download</div>
+  <h1>The DELF B1<br><em>Cheat Sheet</em></h1>
+  <div class="sub">Everything that decides your score,<br>on four pages.</div>
+  <ul>
+    <li><b>Every section</b> — its timing and its marks, in one table</li>
+    <li><b>The 5 / 25 rule</b> that fails candidates who score well overall</li>
+    <li><b>24 connectors</b> that make you sound organised</li>
+  </ul>
+  <div class="foot"><span class="pill">4-page PDF</span><span class="site">delfmasterclass.com</span></div>
+</div>
