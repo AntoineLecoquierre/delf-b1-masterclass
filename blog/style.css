@@ -132,7 +132,6 @@ a:hover{text-decoration:underline;}
 .bl-offer h3{font-family:'Playfair Display',serif;font-weight:700;font-size:25px;color:#fbf6e7;margin:0 0 8px;}
 .bl-offer p{color:#cfe0d8;margin:0 auto 20px;max-width:460px;font-size:16px;}
 .bl-offer .price{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--gold-light);margin-right:8px;}
-.bl-offer .was{color:#9db3aa;text-decoration:line-through;font-size:15px;}
 .bl-offer .btn{
   display:inline-block;margin-top:20px;font-weight:600;font-size:16px;letter-spacing:.02em;
   background:linear-gradient(180deg,var(--gold-light),var(--gold));color:#231a07;
