@@ -100,15 +100,48 @@
       ],
       "provider": { "@id": "https://delfmasterclass.com/#organization" },
       "instructor": { "@id": "https://delfmasterclass.com/#antoine" },
-      "offers": {
-        "@type": "Offer",
-        "price": "79",
-        "priceCurrency": "EUR",
-        "valueAddedTaxIncluded": false,
-        "availability": "https://schema.org/InStock",
-        "category": "Online course",
-        "url": "https://delfmasterclass.com/#enrol"
-      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "The course on its own",
+          "price": "79",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false,
+          "availability": "https://schema.org/InStock",
+          "category": "Online course",
+          "url": "https://delfmasterclass.com/#enrol"
+        },
+        {
+          "@type": "Offer",
+          "name": "Rehearsal — the course and one private session",
+          "price": "111",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false,
+          "availability": "https://schema.org/InStock",
+          "category": "Online course",
+          "url": "https://delfmasterclass.com/#enrol"
+        },
+        {
+          "@type": "Offer",
+          "name": "Coaching — the course and four private sessions",
+          "price": "195",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false,
+          "availability": "https://schema.org/InStock",
+          "category": "Online course",
+          "url": "https://delfmasterclass.com/#enrol"
+        },
+        {
+          "@type": "Offer",
+          "name": "Intensive — the course and eight private sessions",
+          "price": "299",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false,
+          "availability": "https://schema.org/InStock",
+          "category": "Online course",
+          "url": "https://delfmasterclass.com/#enrol"
+        }
+      ],
       "hasCourseInstance": {
         "@type": "CourseInstance",
         "courseMode": "online",
@@ -215,8 +248,8 @@ section{padding:clamp(66px,8vw,110px) 0;}
 .btn:hover{transform:translateY(-1px);}
 .btn-primary{background:var(--teal);color:var(--cream);}
 .btn-primary:hover{background:var(--teal-3);}
-.hero .btn-primary,.final .btn-primary,.hdr .btn-primary,.on-dark .btn-primary,.cookie .btn-primary{background:var(--brass-lt);color:var(--teal);}
-.hero .btn-primary:hover,.final .btn-primary:hover,.hdr .btn-primary:hover,.on-dark .btn-primary:hover,.cookie .btn-primary:hover{background:#e2c479;}
+.hero .btn-primary,.final .btn-primary,.hdr .btn-primary,.on-dark .btn-primary,.cookie .btn-primary,.pk-feat .btn-primary{background:var(--brass-lt);color:var(--teal);}
+.hero .btn-primary:hover,.final .btn-primary:hover,.hdr .btn-primary:hover,.on-dark .btn-primary:hover,.cookie .btn-primary:hover,.pk-feat .btn-primary:hover{background:#e2c479;}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule);}
 .btn-ghost:hover{border-color:var(--ink);}
 .hero .btn-ghost,.final .btn-ghost,.on-dark .btn-ghost,.cookie .btn-ghost{color:var(--cream);border-color:var(--rule-dark);}
@@ -257,6 +290,7 @@ section{padding:clamp(66px,8vw,110px) 0;}
 .price-row{display:flex;align-items:baseline;gap:12px;margin-top:32px;flex-wrap:wrap;}
 .pr-now{font-family:'Playfair Display',serif;font-weight:800;font-size:40px;line-height:1;color:var(--cream);letter-spacing:-.02em;}
 .pr-alt{font-size:15px;color:var(--sage-2);}
+.pr-alt b{color:var(--cream);font-weight:600;}
 .hero-cta{display:flex;gap:13px;margin-top:24px;flex-wrap:wrap;}
 .hero-note{margin-top:18px;font-size:13.5px;color:var(--sage-2);}
 .hero-note b{color:var(--sage);font-weight:500;}
@@ -336,37 +370,66 @@ section{padding:clamp(66px,8vw,110px) 0;}
 
 /* ---------- pricing ---------- */
 .price-wrap{background:var(--paper-2);}
-.card{
-  max-width:620px;margin:46px auto 0;background:var(--card);
-  border:1px solid var(--rule);border-radius:3px;
-  box-shadow:0 26px 60px rgba(22,18,11,.09);overflow:hidden;
+.pk-grid{
+  display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:20px;align-items:stretch;
+  max-width:1120px;margin:48px auto 0;
 }
-.card-top{padding:38px 38px 30px;text-align:center;border-bottom:1px solid var(--rule);}
-.card-name{font-size:11.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);}
-.card-price{display:flex;align-items:baseline;justify-content:center;margin-top:16px;}
-.card-price .amt{font-family:'Playfair Display',serif;font-size:clamp(48px,7vw,62px);font-weight:800;letter-spacing:-.03em;line-height:1;}
-.card-vat{margin-top:11px;font-size:13px;color:var(--muted);}
-.card-body{padding:32px 38px 38px;}
-.card-body ul{list-style:none;margin:0 0 28px;padding:0;}
-.card-body li{padding:13px 0 13px 30px;position:relative;font-size:15.5px;line-height:1.55;color:var(--muted);border-top:1px solid var(--rule-soft);}
-.card-body li:first-child{border-top:0;}
-.card-body li b{color:var(--ink);font-weight:600;}
-.card-body li::before{content:"";position:absolute;left:2px;top:20px;width:13px;height:1px;background:var(--brass);}
+.pk{
+  position:relative;display:flex;flex-direction:column;
+  background:var(--card);border:1px solid var(--rule);border-radius:14px;
+  padding:34px 28px 30px;box-shadow:0 18px 44px rgba(22,18,11,.07);
+}
+/* the middle tier sits taller and darker — it is the one to look at first */
+.pk-feat{
+  background:var(--teal);border-color:var(--teal);color:var(--cream);
+  padding:46px 32px 38px;margin:-24px 0;box-shadow:0 30px 70px rgba(12,42,42,.30);
+}
+.pk-badge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;
+  font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal);background:var(--brass-lt);padding:7px 16px;border-radius:100px;
+}
+.pk-name{font-family:'Playfair Display',serif;font-size:25px;font-weight:700;letter-spacing:-.01em;}
+.pk-feat .pk-name{color:var(--cream);}
+.pk-for{margin-top:7px;font-size:14px;line-height:1.5;color:var(--muted);min-height:42px;}
+.pk-feat .pk-for{color:var(--sage);}
+.pk-price{display:flex;align-items:baseline;gap:9px;margin-top:20px;}
+.pk-amt{font-family:'Playfair Display',serif;font-size:46px;font-weight:800;letter-spacing:-.03em;line-height:1;}
+.pk-feat .pk-amt{color:var(--cream);font-size:52px;}
+.pk-unit{font-size:13.5px;color:var(--muted);}
+.pk-feat .pk-unit{color:var(--sage-2);}
+.pk-save{margin-top:8px;font-size:13px;font-weight:600;color:var(--brass);}
+.pk-feat .pk-save{color:var(--brass-lt);}
+.pk ul{list-style:none;margin:22px 0 26px;padding:0;}
+.pk li{
+  padding:10px 0 10px 26px;position:relative;font-size:14.5px;line-height:1.5;
+  color:var(--muted);border-top:1px solid var(--rule-soft);
+}
+.pk li:first-child{border-top:0;}
+.pk li b{color:var(--ink);font-weight:600;}
+.pk li::before{content:"";position:absolute;left:1px;top:19px;width:12px;height:1px;background:var(--brass);}
+.pk-feat li{color:var(--sage);border-top-color:var(--rule-dark);}
+.pk-feat li b{color:var(--cream);}
+.pk-feat li::before{background:var(--brass-lt);}
+.pk .btn{margin-top:auto;border-radius:8px;}
+.pk-foot{
+  max-width:1120px;margin:22px auto 0;padding:16px 20px;
+  border:1px solid var(--rule);border-radius:10px;background:var(--card);
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+  text-align:center;font-size:14.5px;color:var(--muted);
+}
+.pk-foot b{color:var(--ink);}
+.pk-foot a{color:var(--brass);font-weight:600;text-decoration:underline;text-underline-offset:2px;}
 .guar{
-  margin-top:16px;padding:14px 18px;border:1px solid var(--rule);border-radius:2px;
+  max-width:1120px;margin:16px auto 0;padding:14px 18px;border:1px solid var(--rule);border-radius:10px;
   text-align:center;font-size:14px;color:var(--muted);background:var(--paper);
 }
 .guar b{color:var(--ink);}
-
-/* ---------- one-to-one ---------- */
-.oto{
-  max-width:620px;margin:24px auto 0;display:flex;align-items:center;gap:20px;
-  padding:20px 24px;border:1px solid var(--rule);border-radius:3px;background:var(--card);
+@media(max-width:940px){
+  .pk-grid{grid-template-columns:1fr;gap:30px;max-width:520px;}
+  .pk-feat{order:-1;margin:0;}
+  .pk-for{min-height:0;}
 }
-.oto img{width:74px;height:74px;object-fit:cover;border-radius:2px;flex:none;}
-.oto b{display:block;font-size:15.5px;color:var(--ink);margin-bottom:3px;}
-.oto span{display:block;font-size:14px;color:var(--muted);line-height:1.5;}
-.oto a{color:var(--brass);font-weight:600;text-decoration:underline;text-underline-offset:2px;white-space:nowrap;}
 
 /* ---------- faq ---------- */
 .faq{max-width:800px;margin:46px auto 0;border-top:1px solid var(--rule);}
@@ -488,7 +551,7 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
       <p class="hero-sub">Most people fail this exam not because their French is weak, but because nobody told them what it actually rewards. This course does — <b>five video modules and seven workbooks</b> that decode the whole thing, section by section.</p>
       <div class="price-row">
         <span class="pr-now">€79</span>
-        <span class="pr-alt">One payment, no subscription</span>
+        <span class="pr-alt">on its own — or <b>from €111</b> with private coaching</span>
       </div>
       <div class="hero-cta">
         <a class="btn btn-primary btn-lg" href="https://payhip.com/order?link=YOo8y&amp;pricing_plan=a6zY3M61Gq">Get the course</a>
@@ -644,37 +707,66 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
 <section class="price-wrap" id="enrol">
   <div class="wrap">
     <div class="shead center rv">
-      <span class="eyebrow">Get the course</span>
-      <h2 class="h2">One payment. <em class="g">Yours for life.</em></h2>
+      <span class="eyebrow">Choose your package</span>
+      <h2 class="h2">The course, and <em class="g">a teacher&nbsp;beside&nbsp;you.</em></h2>
     </div>
 
-    <div class="card rv">
-      <div class="card-top">
-        <span class="card-name">DELF B1 Masterclass</span>
-        <div class="card-price"><span class="amt">€79</span></div>
-        <p class="card-vat">Excludes VAT — calculated at checkout</p>
-      </div>
-      <div class="card-body">
+    <div class="pk-grid">
+
+      <div class="pk rv">
+        <div class="pk-name">Rehearsal</div>
+        <p class="pk-for">You want to know where you actually stand before exam day.</p>
+        <div class="pk-price"><span class="pk-amt">€111</span><span class="pk-unit">one payment</span></div>
+        <div class="pk-save">The course and one session, at their usual prices</div>
         <ul>
-          <li><b>5 video modules</b> covering all four sections, explained in English</li>
-          <li><b>7 PDF workbooks</b> — 2 listening exams, 2 reading tests, 2 writing prompts, speaking pack, grammar reference</li>
-          <li><b>6 audio recordings</b> for exam-condition listening practice</li>
-          <li><b>The official scoring grids decoded</b>, with annotated answer keys throughout</li>
-          <li><b>A six-week study plan</b> telling you what to do each day</li>
-          <li><b>Lifetime access</b> and every future update, at no extra cost</li>
+          <li><b>The complete course</b> — 5 modules, 7 workbooks, 6 audios, lifetime access</li>
+          <li><b>One 50-minute session</b> with a qualified teacher, one to one on video</li>
+          <li><b>The full speaking exam</b>, run in exam conditions</li>
+          <li><b>Scored against the real grid</b>, so you hear exactly where the marks go</li>
         </ul>
-        <a class="btn btn-primary btn-lg btn-block" href="https://payhip.com/order?link=YOo8y&amp;pricing_plan=a6zY3M61Gq">Get the course — €79</a>
-        <div class="guar"><b>24-hour money-back guarantee.</b> Not what you expected? Email me within a day and you get a full refund, no justification needed.</div>
+        <a class="btn btn-ghost btn-lg btn-block" href="https://payhip.com/order?link=PACKAGE-1-TO-CREATE">Choose Rehearsal</a>
       </div>
+
+      <div class="pk pk-feat rv">
+        <span class="pk-badge">Most chosen</span>
+        <div class="pk-name">Coaching</div>
+        <p class="pk-for">You have an exam date and you want someone guiding the work.</p>
+        <div class="pk-price"><span class="pk-amt">€195</span><span class="pk-unit">one payment</span></div>
+        <div class="pk-save">€12 less than buying the parts separately</div>
+        <ul>
+          <li><b>The complete course</b>, exactly as above</li>
+          <li><b>Four 50-minute sessions</b> — about one a week, though you set the pace</li>
+          <li><b>All four sections covered</b>, not only the oral</li>
+          <li><b>Your written work read and marked</b> against the official criteria</li>
+          <li><b>Sessions used whenever you like</b>, any time before your exam</li>
+        </ul>
+        <a class="btn btn-primary btn-lg btn-block" href="https://payhip.com/order?link=PACKAGE-2-TO-CREATE">Choose Coaching</a>
+      </div>
+
+      <div class="pk rv">
+        <div class="pk-name">Intensive</div>
+        <p class="pk-for">Your exam is close, or you have sat it before and missed.</p>
+        <div class="pk-price"><span class="pk-amt">€299</span><span class="pk-unit">one payment</span></div>
+        <div class="pk-save">€36 less than buying the parts separately</div>
+        <ul>
+          <li><b>The complete course</b>, exactly as above</li>
+          <li><b>Eight 50-minute sessions</b> — about two a week, though you set the pace</li>
+          <li><b>A full mock exam</b>, spoken and written, marked and talked through</li>
+          <li><b>Every piece of written work</b> read and marked</li>
+          <li><b>Priority on the calendar</b> when your date is tight</li>
+        </ul>
+        <a class="btn btn-ghost btn-lg btn-block" href="https://payhip.com/order?link=PACKAGE-3-TO-CREATE">Choose Intensive</a>
+      </div>
+
     </div>
 
-    <div class="oto rv">
-      <img src="images/coaching-session.jpg" alt="A one-to-one DELF B1 oral rehearsal on a video call" loading="lazy" decoding="async">
-      <div>
-        <b>Want to rehearse the oral with a real person?</b>
-        <span>Book a private 50-minute session and run the full speaking exam with me, from €35 — optional, and separate from the course. <a href="https://calendar.app.google/zLv38h61LrjYUsmw5" target="_blank" rel="noopener noreferrer">See available times →</a></span>
-      </div>
+    <div class="pk-foot rv">
+      <span><b>Just the course, no coaching?</b> Everything in the modules and workbooks, on its own — €79.</span>
+      <a href="https://payhip.com/order?link=YOo8y&amp;pricing_plan=a6zY3M61Gq">Get the course →</a>
     </div>
+
+    <div class="guar rv"><b>24-hour money-back guarantee.</b> Not what you expected? Email me within a day and you get a full refund, no justification needed.</div>
+
   </div>
 </section>
 
