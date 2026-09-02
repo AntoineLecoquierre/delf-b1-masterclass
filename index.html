@@ -100,15 +100,48 @@
       ],
       "provider": { "@id": "https://delfmasterclass.com/#organization" },
       "instructor": { "@id": "https://delfmasterclass.com/#antoine" },
-      "offers": {
-        "@type": "Offer",
-        "price": "79",
-        "priceCurrency": "EUR",
-        "valueAddedTaxIncluded": false,
-        "availability": "https://schema.org/InStock",
-        "category": "Online course",
-        "url": "https://delfmasterclass.com/#enrol"
-      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "The course on its own",
+          "price": "79",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false,
+          "availability": "https://schema.org/InStock",
+          "category": "Online course",
+          "url": "https://delfmasterclass.com/#enrol"
+        },
+        {
+          "@type": "Offer",
+          "name": "Know where you stand — the course and one private session",
+          "price": "114",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false,
+          "availability": "https://schema.org/InStock",
+          "category": "Online course",
+          "url": "https://delfmasterclass.com/#enrol"
+        },
+        {
+          "@type": "Offer",
+          "name": "Ready on all four papers — the course and four private sessions",
+          "price": "199",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false,
+          "availability": "https://schema.org/InStock",
+          "category": "Online course",
+          "url": "https://delfmasterclass.com/#enrol"
+        },
+        {
+          "@type": "Offer",
+          "name": "Sat the whole exam first — the course and eight private sessions",
+          "price": "319",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false,
+          "availability": "https://schema.org/InStock",
+          "category": "Online course",
+          "url": "https://delfmasterclass.com/#enrol"
+        }
+      ],
       "hasCourseInstance": {
         "@type": "CourseInstance",
         "courseMode": "online",
@@ -130,7 +163,7 @@
         { "@type": "Question", "name": "How long does it take to work through?", "acceptedAnswer": { "@type": "Answer", "text": "Most people finish in four to six weeks at around thirty to forty-five minutes a day. A six-week study plan is included, and you can go faster or slower — there is no schedule to keep up with." } },
         { "@type": "Question", "name": "How long do I have access?", "acceptedAnswer": { "@type": "Answer", "text": "For life, including every update to the course. The PDF workbooks and audio files are downloadable, so they are yours to keep whatever happens." } },
         { "@type": "Question", "name": "Which DELF B1 session is this for?", "acceptedAnswer": { "@type": "Answer", "text": "It prepares you for the standard DELF B1, which is valid worldwide for any session date. The format and criteria are the same wherever you sit it." } },
-        { "@type": "Question", "name": "What if the course is not right for me?", "acceptedAnswer": { "@type": "Answer", "text": "There is a 24-hour money-back guarantee. Email within a day of buying and you get a full refund, no justification needed." } }
+        { "@type": "Question", "name": "Can I get a refund?", "acceptedAnswer": { "@type": "Answer", "text": "No. The course is a digital product and all sales are final. Once you receive access, your purchase cannot be cancelled or refunded. By buying, you accept the Terms of Sale, including the no-refund policy. This does not affect any rights or refunds required by applicable law. The free four-page cheat sheet is there so you can find out before you pay." } }
       ]
     }
   ]
@@ -215,8 +248,8 @@ section{padding:clamp(66px,8vw,110px) 0;}
 .btn:hover{transform:translateY(-1px);}
 .btn-primary{background:var(--teal);color:var(--cream);}
 .btn-primary:hover{background:var(--teal-3);}
-.hero .btn-primary,.final .btn-primary,.hdr .btn-primary,.on-dark .btn-primary,.cookie .btn-primary{background:var(--brass-lt);color:var(--teal);}
-.hero .btn-primary:hover,.final .btn-primary:hover,.hdr .btn-primary:hover,.on-dark .btn-primary:hover,.cookie .btn-primary:hover{background:#e2c479;}
+.hero .btn-primary,.final .btn-primary,.hdr .btn-primary,.on-dark .btn-primary,.cookie .btn-primary,.pk-feat .btn-primary{background:var(--brass-lt);color:var(--teal);}
+.hero .btn-primary:hover,.final .btn-primary:hover,.hdr .btn-primary:hover,.on-dark .btn-primary:hover,.cookie .btn-primary:hover,.pk-feat .btn-primary:hover{background:#e2c479;}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule);}
 .btn-ghost:hover{border-color:var(--ink);}
 .hero .btn-ghost,.final .btn-ghost,.on-dark .btn-ghost,.cookie .btn-ghost{color:var(--cream);border-color:var(--rule-dark);}
@@ -257,6 +290,7 @@ section{padding:clamp(66px,8vw,110px) 0;}
 .price-row{display:flex;align-items:baseline;gap:12px;margin-top:32px;flex-wrap:wrap;}
 .pr-now{font-family:'Playfair Display',serif;font-weight:800;font-size:40px;line-height:1;color:var(--cream);letter-spacing:-.02em;}
 .pr-alt{font-size:15px;color:var(--sage-2);}
+.pr-alt b{color:var(--cream);font-weight:600;}
 .hero-cta{display:flex;gap:13px;margin-top:24px;flex-wrap:wrap;}
 .hero-note{margin-top:18px;font-size:13.5px;color:var(--sage-2);}
 .hero-note b{color:var(--sage);font-weight:500;}
@@ -319,54 +353,122 @@ section{padding:clamp(66px,8vw,110px) 0;}
 
 /* ---------- testimonials ---------- */
 .rating{
-  display:inline-flex;align-items:center;gap:12px;text-decoration:none;
-  border:1px solid var(--rule);padding:11px 20px;border-radius:100px;margin-top:24px;
-  transition:border-color .2s,background .2s;
+  display:inline-flex;align-items:center;gap:11px;margin-top:22px;
 }
-.rating:hover{border-color:var(--brass);background:rgba(168,132,60,.06);}
+.rating .src{font-size:12.5px;color:var(--muted);}
+.rating .src a{color:var(--muted);text-decoration:underline;text-underline-offset:2px;}
+.rating .src a:hover{color:var(--brass);}
 .stars{color:var(--brass);letter-spacing:2px;font-size:14px;}
 .rating span{font-size:13.5px;color:var(--muted);}
 .rating b{color:var(--ink);}
-.quotes{columns:3;column-gap:24px;margin-top:46px;}
-.q{break-inside:avoid;margin:0 0 24px;padding:24px 22px;background:var(--card);border:1px solid var(--rule-soft);border-radius:3px;}
-.q blockquote{margin:0;font-size:15.5px;line-height:1.62;color:var(--ink-2);}
-.q .qs{color:var(--brass);letter-spacing:2px;font-size:12px;display:block;margin-bottom:11px;}
-.q figcaption{margin-top:15px;padding-top:13px;border-top:1px solid var(--rule-soft);display:flex;align-items:center;gap:11px;font-size:14px;font-weight:600;}
-.av{width:31px;height:31px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:var(--teal);color:var(--brass-lt);font-family:'Playfair Display',serif;font-size:14px;font-weight:700;}
+.marquee{
+  margin-top:44px;display:flex;flex-direction:column;gap:16px;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
+          mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
+}
+.mq-row{overflow:hidden;}
+.mq-track{display:flex;align-items:flex-start;gap:16px;width:max-content;animation:mq 64s linear infinite;}
+.mq-dup{display:contents;}
+.mq-t2{animation-duration:82s;}
+.mq-t3{animation-duration:73s;}
+/* 12 cards, 11 gaps: half the track is one gap short of a full period, hence the 8px */
+@keyframes mq{from{transform:translateX(0);}to{transform:translateX(calc(-50% - 8px));}}
+.marquee:hover .mq-track{animation-play-state:paused;}
+.mq-c{
+  flex:0 0 auto;max-width:340px;margin:0;padding:20px 22px;
+  background:transparent;border:1px solid var(--rule);border-radius:16px;
+  display:flex;flex-direction:column;
+}
+.mq-c blockquote{margin:0;font-size:15px;line-height:1.6;color:var(--ink-2);}
+.mq-c .qs{color:var(--brass);letter-spacing:2px;font-size:11.5px;display:block;margin-bottom:10px;}
+.mq-c figcaption{
+  margin-top:16px;padding-top:13px;display:flex;align-items:center;gap:10px;
+  font-size:13.5px;font-weight:600;color:var(--ink);
+}
+.mq-src{
+  margin-left:auto;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--rule);border-radius:100px;padding:3px 9px;
+}
+.av{width:29px;height:29px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:var(--teal);color:var(--brass-lt);font-size:12.5px;font-weight:600;}
+@media(prefers-reduced-motion:reduce){
+  .mq-track{animation:none;}
+  .mq-row{overflow-x:auto;}
+  .mq-dup{display:none;}
+}
+@media(max-width:640px){
+  .mq-c{max-width:270px;padding:17px 18px;}
+  .mq-c blockquote{font-size:14.5px;}
+}
 
 /* ---------- pricing ---------- */
 .price-wrap{background:var(--paper-2);}
-.card{
-  max-width:620px;margin:46px auto 0;background:var(--card);
-  border:1px solid var(--rule);border-radius:3px;
-  box-shadow:0 26px 60px rgba(22,18,11,.09);overflow:hidden;
+.pk-grid{
+  display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:20px;align-items:stretch;
+  max-width:1120px;margin:48px auto 0;
 }
-.card-top{padding:38px 38px 30px;text-align:center;border-bottom:1px solid var(--rule);}
-.card-name{font-size:11.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);}
-.card-price{display:flex;align-items:baseline;justify-content:center;margin-top:16px;}
-.card-price .amt{font-family:'Playfair Display',serif;font-size:clamp(48px,7vw,62px);font-weight:800;letter-spacing:-.03em;line-height:1;}
-.card-vat{margin-top:11px;font-size:13px;color:var(--muted);}
-.card-body{padding:32px 38px 38px;}
-.card-body ul{list-style:none;margin:0 0 28px;padding:0;}
-.card-body li{padding:13px 0 13px 30px;position:relative;font-size:15.5px;line-height:1.55;color:var(--muted);border-top:1px solid var(--rule-soft);}
-.card-body li:first-child{border-top:0;}
-.card-body li b{color:var(--ink);font-weight:600;}
-.card-body li::before{content:"";position:absolute;left:2px;top:20px;width:13px;height:1px;background:var(--brass);}
+.pk{
+  position:relative;display:flex;flex-direction:column;
+  background:var(--card);border:1px solid var(--rule);border-radius:14px;
+  padding:34px 28px 30px;box-shadow:0 18px 44px rgba(22,18,11,.07);
+}
+/* the middle tier sits taller and darker — it is the one to look at first */
+.pk-feat{
+  background:var(--teal);border-color:var(--teal);color:var(--cream);
+  padding:46px 32px 38px;margin:-24px 0;box-shadow:0 30px 70px rgba(12,42,42,.30);
+}
+.pk-badge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;
+  font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal);background:var(--brass-lt);padding:7px 16px;border-radius:100px;
+}
+.pk-name{font-family:'Playfair Display',serif;font-size:25px;font-weight:700;letter-spacing:-.01em;}
+.pk-feat .pk-name{color:var(--cream);}
+.pk-for{margin-top:7px;font-size:14px;line-height:1.5;color:var(--muted);min-height:42px;}
+.pk-feat .pk-for{color:var(--sage);}
+.pk-price{display:flex;align-items:baseline;gap:9px;margin-top:20px;}
+.pk-amt{font-family:'Playfair Display',serif;font-size:46px;font-weight:800;letter-spacing:-.03em;line-height:1;}
+.pk-feat .pk-amt{color:var(--cream);font-size:52px;}
+.pk-unit{font-size:13.5px;color:var(--muted);}
+.pk-feat .pk-unit{color:var(--sage-2);}
+.pk-save{margin-top:8px;font-size:13px;font-weight:600;color:var(--brass);}
+.pk-feat .pk-save{color:var(--brass-lt);}
+.pk ul{list-style:none;margin:22px 0 26px;padding:0;}
+.pk li{
+  padding:10px 0 10px 26px;position:relative;font-size:14.5px;line-height:1.5;
+  color:var(--muted);border-top:1px solid var(--rule-soft);
+}
+.pk li:first-child{border-top:0;}
+.pk li b{color:var(--ink);font-weight:600;}
+.pk li::before{content:"";position:absolute;left:1px;top:19px;width:12px;height:1px;background:var(--brass);}
+.pk-feat li{color:var(--sage);border-top-color:var(--rule-dark);}
+.pk-feat li b{color:var(--cream);}
+.pk-feat li::before{background:var(--brass-lt);}
+.pk .btn{margin-top:auto;border-radius:8px;}
+.pk-upg{
+  max-width:1120px;margin:26px auto 0;padding:20px 26px;
+  border:1px solid var(--brass);border-radius:10px;background:var(--brass-lt);
+  text-align:center;font-size:14.5px;line-height:1.6;color:var(--teal);
+}
+.pk-upg b{display:block;font-size:16px;margin-bottom:4px;}
+.pk-upg a{color:var(--teal);font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+.pk-foot{
+  max-width:1120px;margin:22px auto 0;padding:16px 20px;
+  border:1px solid var(--rule);border-radius:10px;background:var(--card);
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+  text-align:center;font-size:14.5px;color:var(--muted);
+}
+.pk-foot b{color:var(--ink);}
+.pk-foot a{color:var(--brass);font-weight:600;text-decoration:underline;text-underline-offset:2px;}
 .guar{
-  margin-top:16px;padding:14px 18px;border:1px solid var(--rule);border-radius:2px;
+  max-width:1120px;margin:16px auto 0;padding:14px 18px;border:1px solid var(--rule);border-radius:10px;
   text-align:center;font-size:14px;color:var(--muted);background:var(--paper);
 }
 .guar b{color:var(--ink);}
-
-/* ---------- one-to-one ---------- */
-.oto{
-  max-width:620px;margin:24px auto 0;display:flex;align-items:center;gap:20px;
-  padding:20px 24px;border:1px solid var(--rule);border-radius:3px;background:var(--card);
+@media(max-width:940px){
+  .pk-grid{grid-template-columns:1fr;gap:30px;max-width:520px;}
+  .pk-feat{order:-1;margin:0;}
+  .pk-for{min-height:0;}
 }
-.oto img{width:74px;height:74px;object-fit:cover;border-radius:2px;flex:none;}
-.oto b{display:block;font-size:15.5px;color:var(--ink);margin-bottom:3px;}
-.oto span{display:block;font-size:14px;color:var(--muted);line-height:1.5;}
-.oto a{color:var(--brass);font-weight:600;text-decoration:underline;text-underline-offset:2px;white-space:nowrap;}
 
 /* ---------- faq ---------- */
 .faq{max-width:800px;margin:46px auto 0;border-top:1px solid var(--rule);}
@@ -488,13 +590,13 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
       <p class="hero-sub">Most people fail this exam not because their French is weak, but because nobody told them what it actually rewards. This course does — <b>five video modules and seven workbooks</b> that decode the whole thing, section by section.</p>
       <div class="price-row">
         <span class="pr-now">€79</span>
-        <span class="pr-alt">One payment, no subscription</span>
+        <span class="pr-alt">on its own — or <b>from €114</b> with private coaching</span>
       </div>
       <div class="hero-cta">
         <a class="btn btn-primary btn-lg" href="https://payhip.com/order?link=YOo8y&amp;pricing_plan=a6zY3M61Gq">Get the course</a>
         <a class="btn btn-ghost btn-lg" href="#inside">See what's inside</a>
       </div>
-      <p class="hero-note">Lifetime access · <b>24-hour money-back guarantee</b> · price excl. VAT</p>
+      <p class="hero-note">Lifetime access · <b>no subscription</b> · price excl. VAT</p>
     </div>
     <div class="hero-media">
       <span class="media-tag">Inside the course</span>
@@ -622,20 +724,18 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
 <section>
   <div class="wrap">
     <div class="shead center rv">
-      <span class="eyebrow">What students say</span>
+      <span class="eyebrow">Verified Preply reviews</span>
       <h2 class="h2">Taught by someone <em class="g">they keep coming back to.</em></h2>
-      <a class="rating" href="https://preply.com/en/tutor/6082510" target="_blank" rel="noopener noreferrer">
+      <div class="rating">
         <span class="stars" aria-hidden="true">★★★★★</span>
-        <span><b>5.0</b> · 32 reviews on Preply →</span>
-      </a>
+        <span><b>5.0</b> across 32 reviews on Preply</span>
+        <span class="src">(<a href="https://preply.com/en/tutor/6082510" target="_blank" rel="noopener noreferrer">source</a>)</span>
+      </div>
     </div>
-    <div class="quotes">
-      <figure class="q rv"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is such a wonderful tutor. He has made learning a new language fun and engaging, and works with me on the small things so I truly learn to speak, read and write the way a French person would.</blockquote><figcaption><span class="av" aria-hidden="true">L</span>Lindsey</figcaption></figure>
-      <figure class="q rv"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is a fantastic French tutor — incredibly friendly and easygoing, which makes every lesson stress-free. Since starting with him I have noticed a significant improvement in my French speaking. I truly cannot recommend him enough.</blockquote><figcaption><span class="av" aria-hidden="true">S</span>Stephen</figcaption></figure>
-      <figure class="q rv"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Perfect tutor for the DELF!</blockquote><figcaption><span class="av" aria-hidden="true">J</span>Jaynie</figcaption></figure>
-      <figure class="q rv"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Learning French with Antoine has been an extremely enriching experience. He built up my vocabulary so I can approach the exam with a solid foundation.</blockquote><figcaption><span class="av" aria-hidden="true">M</span>Mariia</figcaption></figure>
-      <figure class="q rv"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine adjusts the lessons to suit my level and really helps me improve. Every session is well structured, and I always leave with something concrete to practise.</blockquote><figcaption><span class="av" aria-hidden="true">S</span>Sarah</figcaption></figure>
-      <figure class="q rv"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>I had a great experience with Antoine. He is really a great teacher who helped me progress quickly in understanding French and speaking more confidently.</blockquote><figcaption><span class="av" aria-hidden="true">P</span>Patrick</figcaption></figure>
+    <div class="marquee">
+      <div class="mq-row"><div class="mq-track mq-t1"><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is a great teacher! My 10 year old son enjoyed learning French. He is very patient and kind. Merci, Antoine! :)</blockquote><figcaption><span class="av" aria-hidden="true">K</span>Karine<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is very patient, and his lessons are consistently fun and engaging. I always look forward to our sessions. I also appreciate how he adapts each lesson to my learning style, which really helps me learn more effectively.</blockquote><figcaption><span class="av" aria-hidden="true">N</span>Nikki<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is a patient and professional teacher. His explanations are clear and his teaching style is very effective. Highly recommended!</blockquote><figcaption><span class="av" aria-hidden="true">L</span>Lea<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Perfect tutor for Delf !</blockquote><figcaption><span class="av" aria-hidden="true">J</span>Jaynie<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>I&#x27;m making great progress with Antoine, his lesson plan is structured around my capabilities and I finish each lesson feeling as though I&#x27;ve learned so much!</blockquote><figcaption><span class="av" aria-hidden="true">E</span>Ebony<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is a great teacher. He is very patient and well-organized. He helps me a lot to improve my pronunciation and also plans engaging and easy-to-follow activities that make learning enjoyable. I really enjoy his classes.</blockquote><figcaption><span class="av" aria-hidden="true">J</span>Jessica<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine has patience and smile all the time. The lessons are pleasant.</blockquote><figcaption><span class="av" aria-hidden="true">A</span>Adrianne<span class="mq-src">Preply</span></figcaption></figure><span class="mq-dup" aria-hidden="true"><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is a great teacher! My 10 year old son enjoyed learning French. He is very patient and kind. Merci, Antoine! :)</blockquote><figcaption><span class="av" aria-hidden="true">K</span>Karine<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is very patient, and his lessons are consistently fun and engaging. I always look forward to our sessions. I also appreciate how he adapts each lesson to my learning style, which really helps me learn more effectively.</blockquote><figcaption><span class="av" aria-hidden="true">N</span>Nikki<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is a patient and professional teacher. His explanations are clear and his teaching style is very effective. Highly recommended!</blockquote><figcaption><span class="av" aria-hidden="true">L</span>Lea<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Perfect tutor for Delf !</blockquote><figcaption><span class="av" aria-hidden="true">J</span>Jaynie<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>I&#x27;m making great progress with Antoine, his lesson plan is structured around my capabilities and I finish each lesson feeling as though I&#x27;ve learned so much!</blockquote><figcaption><span class="av" aria-hidden="true">E</span>Ebony<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is a great teacher. He is very patient and well-organized. He helps me a lot to improve my pronunciation and also plans engaging and easy-to-follow activities that make learning enjoyable. I really enjoy his classes.</blockquote><figcaption><span class="av" aria-hidden="true">J</span>Jessica<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine has patience and smile all the time. The lessons are pleasant.</blockquote><figcaption><span class="av" aria-hidden="true">A</span>Adrianne<span class="mq-src">Preply</span></figcaption></figure></span></div></div>
+      <div class="mq-row" aria-hidden="true"><div class="mq-track mq-t2"><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine adjusts the lessons to suit my level and really help me improve!</blockquote><figcaption><span class="av" aria-hidden="true">S</span>Sarah<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is a fantastic French tutor who is incredibly friendly and easygoing, this makes every lesson enjoyable and stress-free. He is very patient and supportive, especially when learning a new language for the first time.</blockquote><figcaption><span class="av" aria-hidden="true">S</span>Stephen<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is adapting his teaching style well to my level of understanding. He is patient and kind with feedback.</blockquote><figcaption><span class="av" aria-hidden="true">M</span>Michael<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is such a wonderful tutor! He has made learning a new language fun and engaging and works with me on the small things so that I truly am learning how to speak, read, and write the way a French person would.</blockquote><figcaption><span class="av" aria-hidden="true">L</span>Lindsey<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is amazing! He breaks down learning a new language into easy to handle pieces. He is very patient and takes his time helping you with pronunciation, grammar, and understanding.</blockquote><figcaption><span class="av" aria-hidden="true">J</span>Jake<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is such a wonderful French tutor… kind, respectful, and genuinely supportive. If there’s ever something he wants to double-check, he’ll take it away and come back with an answer, which I really appreciate.</blockquote><figcaption><span class="av" aria-hidden="true">R</span>Renato<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>I have the pleasure of taking French conversation lessons with Antoine. Antoine engages you in meaningful conversation, which not only makes the learning process enjoyable but also incredibly effective.</blockquote><figcaption><span class="av" aria-hidden="true">J</span>Jo<span class="mq-src">Preply</span></figcaption></figure><span class="mq-dup" aria-hidden="true"><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine adjusts the lessons to suit my level and really help me improve!</blockquote><figcaption><span class="av" aria-hidden="true">S</span>Sarah<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is a fantastic French tutor who is incredibly friendly and easygoing, this makes every lesson enjoyable and stress-free. He is very patient and supportive, especially when learning a new language for the first time.</blockquote><figcaption><span class="av" aria-hidden="true">S</span>Stephen<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is adapting his teaching style well to my level of understanding. He is patient and kind with feedback.</blockquote><figcaption><span class="av" aria-hidden="true">M</span>Michael<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is such a wonderful tutor! He has made learning a new language fun and engaging and works with me on the small things so that I truly am learning how to speak, read, and write the way a French person would.</blockquote><figcaption><span class="av" aria-hidden="true">L</span>Lindsey<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is amazing! He breaks down learning a new language into easy to handle pieces. He is very patient and takes his time helping you with pronunciation, grammar, and understanding.</blockquote><figcaption><span class="av" aria-hidden="true">J</span>Jake<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is such a wonderful French tutor… kind, respectful, and genuinely supportive. If there’s ever something he wants to double-check, he’ll take it away and come back with an answer, which I really appreciate.</blockquote><figcaption><span class="av" aria-hidden="true">R</span>Renato<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>I have the pleasure of taking French conversation lessons with Antoine. Antoine engages you in meaningful conversation, which not only makes the learning process enjoyable but also incredibly effective.</blockquote><figcaption><span class="av" aria-hidden="true">J</span>Jo<span class="mq-src">Preply</span></figcaption></figure></span></div></div>
+      <div class="mq-row" aria-hidden="true"><div class="mq-track mq-t3"><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is very patient and kind has helped my French in innumerable ways :)</blockquote><figcaption><span class="av" aria-hidden="true">M</span>Michael<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is a really nice teacher. I enjoyed studying with him very much. So I can really recommend him if you want to improve your language skills. Just give it a go!</blockquote><figcaption><span class="av" aria-hidden="true">R</span>Rosemarie<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>I had a great experience with Antoine. He’s really a great teacher who helped me progress quickly in understanding French and speaking more confidently.</blockquote><figcaption><span class="av" aria-hidden="true">P</span>Patrick<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is very attentive to details and tailors his lessons to your needs. If he doesn&#x27;t have an answer for you, he will follow up very soon.</blockquote><figcaption><span class="av" aria-hidden="true">T</span>Túlio<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Amazing teacher, very positive! Very patient and knows how to teach! Very prepared 💞 I would recommend everyone to take a lesson from him!</blockquote><figcaption><span class="av" aria-hidden="true">B</span>Buket<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine gives lessons to my son. His lessons are prepared accordingly to my son&#x27;s level and interests. He always sounds enthusastic. My son enjoys the lessons.</blockquote><figcaption><span class="av" aria-hidden="true">H</span>Havva<span class="mq-src">Preply</span></figcaption></figure><span class="mq-dup" aria-hidden="true"><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is very patient and kind has helped my French in innumerable ways :)</blockquote><figcaption><span class="av" aria-hidden="true">M</span>Michael<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is a really nice teacher. I enjoyed studying with him very much. So I can really recommend him if you want to improve your language skills. Just give it a go!</blockquote><figcaption><span class="av" aria-hidden="true">R</span>Rosemarie<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>I had a great experience with Antoine. He’s really a great teacher who helped me progress quickly in understanding French and speaking more confidently.</blockquote><figcaption><span class="av" aria-hidden="true">P</span>Patrick<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is very attentive to details and tailors his lessons to your needs. If he doesn&#x27;t have an answer for you, he will follow up very soon.</blockquote><figcaption><span class="av" aria-hidden="true">T</span>Túlio<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Amazing teacher, very positive! Very patient and knows how to teach! Very prepared 💞 I would recommend everyone to take a lesson from him!</blockquote><figcaption><span class="av" aria-hidden="true">B</span>Buket<span class="mq-src">Preply</span></figcaption></figure><figure class="mq-c"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine gives lessons to my son. His lessons are prepared accordingly to my son&#x27;s level and interests. He always sounds enthusastic. My son enjoys the lessons.</blockquote><figcaption><span class="av" aria-hidden="true">H</span>Havva<span class="mq-src">Preply</span></figcaption></figure></span></div></div>
     </div>
   </div>
 </section>
@@ -644,37 +744,77 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
 <section class="price-wrap" id="enrol">
   <div class="wrap">
     <div class="shead center rv">
-      <span class="eyebrow">Get the course</span>
-      <h2 class="h2">One payment. <em class="g">Yours for life.</em></h2>
+      <span class="eyebrow">Choose your package</span>
+      <h2 class="h2">The course, and <em class="g">a teacher&nbsp;beside&nbsp;you.</em></h2>
     </div>
 
-    <div class="card rv">
-      <div class="card-top">
-        <span class="card-name">DELF B1 Masterclass</span>
-        <div class="card-price"><span class="amt">€79</span></div>
-        <p class="card-vat">Excludes VAT — calculated at checkout</p>
-      </div>
-      <div class="card-body">
+    <div class="pk-grid">
+
+      <div class="pk rv">
+        <div class="pk-name">Know where you stand</div>
+        <p class="pk-for">One honest read on your level, before you commit to anything bigger.</p>
+        <div class="pk-price"><span class="pk-amt">€114</span><span class="pk-unit">one payment</span></div>
+        <div class="pk-save">The course and one session, at their usual prices</div>
         <ul>
-          <li><b>5 video modules</b> covering all four sections, explained in English</li>
-          <li><b>7 PDF workbooks</b> — 2 listening exams, 2 reading tests, 2 writing prompts, speaking pack, grammar reference</li>
-          <li><b>6 audio recordings</b> for exam-condition listening practice</li>
-          <li><b>The official scoring grids decoded</b>, with annotated answer keys throughout</li>
-          <li><b>A six-week study plan</b> telling you what to do each day</li>
-          <li><b>Lifetime access</b> and every future update, at no extra cost</li>
+          <li><b>The complete course</b> — 5 modules, 7 workbooks, 6 audios, lifetime access</li>
+          <li><b>One 50-minute session</b> with a qualified teacher, one to one on video</li>
+          <li><b>The full speaking exam</b>, run in exam conditions</li>
+          <li><b>Scored against the real grid</b>, so you hear exactly where the marks go</li>
+          <li><b>Booked whenever you like</b>, within four months of purchase</li>
         </ul>
-        <a class="btn btn-primary btn-lg btn-block" href="https://payhip.com/order?link=YOo8y&amp;pricing_plan=a6zY3M61Gq">Get the course — €79</a>
-        <div class="guar"><b>24-hour money-back guarantee.</b> Not what you expected? Email me within a day and you get a full refund, no justification needed.</div>
+        <a class="btn btn-ghost btn-lg btn-block" href="https://payhip.com/order?link=PACKAGE-1-TO-CREATE">Choose this — €114</a>
       </div>
+
+      <div class="pk pk-feat rv">
+        <span class="pk-badge">Most chosen</span>
+        <div class="pk-name">Ready on all four papers</div>
+        <p class="pk-for">You have a date, and you want every section covered — not just the oral.</p>
+        <div class="pk-price"><span class="pk-amt">€199</span><span class="pk-unit">one payment</span></div>
+        <div class="pk-save">€20 less than buying the parts separately</div>
+        <ul>
+          <li><b>The complete course</b>, exactly as above</li>
+          <li><b>Four 50-minute sessions</b> — about one a week, though you set the pace</li>
+          <li><b>All four sections covered</b>, not only the oral</li>
+          <li><b>Your written work read and marked</b> against the official criteria</li>
+          <li><b>Sessions used whenever you like</b>, for four months from purchase</li>
+        </ul>
+        <a class="btn btn-primary btn-lg btn-block" href="https://payhip.com/order?link=PACKAGE-2-TO-CREATE">Choose this — €199</a>
+      </div>
+
+      <div class="pk rv">
+        <div class="pk-name">Sat the whole exam first</div>
+        <p class="pk-for">Your date is close, or you have sat it before and missed.</p>
+        <div class="pk-price"><span class="pk-amt">€319</span><span class="pk-unit">one payment</span></div>
+        <div class="pk-save">€40 less than buying the parts separately</div>
+        <ul>
+          <li><b>The complete course</b>, exactly as above</li>
+          <li><b>Eight 50-minute sessions</b> — about two a week, though you set the pace</li>
+          <li><b>A full mock exam</b>, spoken and written, marked and talked through</li>
+          <li><b>Every piece of written work</b> read and marked</li>
+          <li><b>Taught by Antoine himself</b>, not a stand-in — and four months to use every session</li>
+        </ul>
+        <a class="btn btn-ghost btn-lg btn-block" href="https://payhip.com/order?link=PACKAGE-3-TO-CREATE">Choose this — €319</a>
+      </div>
+
     </div>
 
-    <div class="oto rv">
-      <img src="images/coaching-session.jpg" alt="A one-to-one DELF B1 oral rehearsal on a video call" loading="lazy" decoding="async">
-      <div>
-        <b>Want to rehearse the oral with a real person?</b>
-        <span>Book a private 50-minute session and run the full speaking exam with me, from €35 — optional, and separate from the course. <a href="https://calendar.app.google/zLv38h61LrjYUsmw5" target="_blank" rel="noopener noreferrer">See available times →</a></span>
-      </div>
+    <div class="pk-upg rv">
+      <b>Start small, move up later.</b>
+      <span>Take the first package, and if you want more you pay only the difference — €114 to €199, or €199 to €319 — any time within your four months. Nothing is wasted and you never have to commit to the largest package on faith. Write to <a href="mailto:contact@delfmasterclass.com">contact@delfmasterclass.com</a> and we send you the link.</span>
     </div>
+
+    <div class="pk-foot rv">
+      <span><b>Just the course, no coaching?</b> Everything in the modules and workbooks, on its own — €79.</span>
+      <a href="https://payhip.com/order?link=YOo8y&amp;pricing_plan=a6zY3M61Gq">Get the course →</a>
+    </div>
+
+    <div class="pk-foot rv">
+      <span><b>Already have the course?</b> Book a single 50-minute session on its own — €35.</span>
+      <a href="https://calendar.app.google/zLv38h61LrjYUsmw5" target="_blank" rel="noopener noreferrer">See available times →</a>
+    </div>
+
+    <div class="guar rv"><b>All sales are final.</b> Once you receive access, your purchase cannot be cancelled or refunded. This does not affect any rights required by applicable law. Read the <a href="#free">four free pages</a> first if you are unsure — <a href="/refund/">full policy</a>.</div>
+
   </div>
 </section>
 
@@ -707,8 +847,8 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
         <div class="faq-a" id="a5" role="region" aria-labelledby="q5"><div class="faq-a-in">It prepares you for the standard DELF B1, which is valid worldwide for any session date — the format and criteria are the same wherever you sit it.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" id="q6" aria-controls="a6">What if it is not right for me? <span class="faq-ic" aria-hidden="true"></span></button>
-        <div class="faq-a" id="a6" role="region" aria-labelledby="q6"><div class="faq-a-in">You get your money back. There is a <a href="/refund/">24-hour money-back guarantee</a> — email within a day of buying and I refund you in full, no justification needed.</div></div>
+        <button class="faq-q" aria-expanded="false" id="q6" aria-controls="a6">Can I get a refund? <span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a" id="a6" role="region" aria-labelledby="q6"><div class="faq-a-in">No. The course is a digital product and all sales are final. Once you receive access, your purchase cannot be cancelled or refunded, and coaching sessions reserve time that is not offered to anyone else. By buying, you accept the <a href="/terms/">Terms of Sale</a>, including the no-refund policy. This does not affect any rights or refunds required by applicable law.<br><br>Which is exactly why the <a href="#free">free four-page cheat sheet</a> exists — same material, same way of explaining things, no card. Read it first and only buy if it works for you.</div></div>
       </div>
     </div>
   </div>
@@ -744,7 +884,7 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
       <div class="final-cta">
         <a class="btn btn-primary btn-lg" href="https://payhip.com/order?link=YOo8y&amp;pricing_plan=a6zY3M61Gq">Get the course — €79</a>
       </div>
-      <p class="final-note">Lifetime access · 24-hour money-back guarantee · taught entirely in English</p>
+      <p class="final-note">Lifetime access · one payment · taught entirely in English</p>
     </div>
   </div>
 </section>
