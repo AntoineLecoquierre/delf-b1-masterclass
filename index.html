@@ -113,7 +113,7 @@
         },
         {
           "@type": "Offer",
-          "name": "Rehearsal — the course and one private session",
+          "name": "Know where you stand — the course and one private session",
           "price": "114",
           "priceCurrency": "EUR",
           "valueAddedTaxIncluded": false,
@@ -123,7 +123,7 @@
         },
         {
           "@type": "Offer",
-          "name": "Coaching — the course and four private sessions",
+          "name": "Ready on all four papers — the course and four private sessions",
           "price": "199",
           "priceCurrency": "EUR",
           "valueAddedTaxIncluded": false,
@@ -133,7 +133,7 @@
         },
         {
           "@type": "Offer",
-          "name": "Intensive — the course and eight private sessions",
+          "name": "Sat the whole exam first — the course and eight private sessions",
           "price": "319",
           "priceCurrency": "EUR",
           "valueAddedTaxIncluded": false,
@@ -353,11 +353,11 @@ section{padding:clamp(66px,8vw,110px) 0;}
 
 /* ---------- testimonials ---------- */
 .rating{
-  display:inline-flex;align-items:center;gap:12px;text-decoration:none;
-  border:1px solid var(--rule);padding:11px 20px;border-radius:100px;margin-top:24px;
-  transition:border-color .2s,background .2s;
+  display:inline-flex;align-items:center;gap:11px;margin-top:22px;
 }
-.rating:hover{border-color:var(--brass);background:rgba(168,132,60,.06);}
+.rating .src{font-size:12.5px;color:var(--muted);}
+.rating .src a{color:var(--muted);text-decoration:underline;text-underline-offset:2px;}
+.rating .src a:hover{color:var(--brass);}
 .stars{color:var(--brass);letter-spacing:2px;font-size:14px;}
 .rating span{font-size:13.5px;color:var(--muted);}
 .rating b{color:var(--ink);}
@@ -412,6 +412,13 @@ section{padding:clamp(66px,8vw,110px) 0;}
 .pk-feat li b{color:var(--cream);}
 .pk-feat li::before{background:var(--brass-lt);}
 .pk .btn{margin-top:auto;border-radius:8px;}
+.pk-upg{
+  max-width:1120px;margin:26px auto 0;padding:20px 26px;
+  border:1px solid var(--brass);border-radius:10px;background:var(--brass-lt);
+  text-align:center;font-size:14.5px;line-height:1.6;color:var(--teal);
+}
+.pk-upg b{display:block;font-size:16px;margin-bottom:4px;}
+.pk-upg a{color:var(--teal);font-weight:600;text-decoration:underline;text-underline-offset:2px;}
 .pk-foot{
   max-width:1120px;margin:22px auto 0;padding:16px 20px;
   border:1px solid var(--rule);border-radius:10px;background:var(--card);
@@ -687,10 +694,11 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
     <div class="shead center rv">
       <span class="eyebrow">What students say</span>
       <h2 class="h2">Taught by someone <em class="g">they keep coming back to.</em></h2>
-      <a class="rating" href="https://preply.com/en/tutor/6082510" target="_blank" rel="noopener noreferrer">
+      <div class="rating">
         <span class="stars" aria-hidden="true">★★★★★</span>
-        <span><b>5.0</b> · 32 reviews on Preply →</span>
-      </a>
+        <span><b>5.0</b> across 32 reviews</span>
+        <span class="src">(<a href="https://preply.com/en/tutor/6082510" target="_blank" rel="noopener noreferrer">source</a>)</span>
+      </div>
     </div>
     <div class="quotes">
       <figure class="q rv"><span class="qs" aria-hidden="true">★★★★★</span><blockquote>Antoine is such a wonderful tutor. He has made learning a new language fun and engaging, and works with me on the small things so I truly learn to speak, read and write the way a French person would.</blockquote><figcaption><span class="av" aria-hidden="true">L</span>Lindsey</figcaption></figure>
@@ -714,8 +722,8 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
     <div class="pk-grid">
 
       <div class="pk rv">
-        <div class="pk-name">Rehearsal</div>
-        <p class="pk-for">You want to know where you actually stand before exam day.</p>
+        <div class="pk-name">Know where you stand</div>
+        <p class="pk-for">One honest read on your level, before you commit to anything bigger.</p>
         <div class="pk-price"><span class="pk-amt">€114</span><span class="pk-unit">one payment</span></div>
         <div class="pk-save">The course and one session, at their usual prices</div>
         <ul>
@@ -723,15 +731,15 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
           <li><b>One 50-minute session</b> with a qualified teacher, one to one on video</li>
           <li><b>The full speaking exam</b>, run in exam conditions</li>
           <li><b>Scored against the real grid</b>, so you hear exactly where the marks go</li>
-          <li><b>Booked whenever you like</b>, within two months of purchase</li>
+          <li><b>Booked whenever you like</b>, within four months of purchase</li>
         </ul>
-        <a class="btn btn-ghost btn-lg btn-block" href="https://payhip.com/order?link=PACKAGE-1-TO-CREATE">Choose Rehearsal</a>
+        <a class="btn btn-ghost btn-lg btn-block" href="https://payhip.com/order?link=PACKAGE-1-TO-CREATE">Choose this — €114</a>
       </div>
 
       <div class="pk pk-feat rv">
         <span class="pk-badge">Most chosen</span>
-        <div class="pk-name">Coaching</div>
-        <p class="pk-for">You have an exam date and you want someone guiding the work.</p>
+        <div class="pk-name">Ready on all four papers</div>
+        <p class="pk-for">You have a date, and you want every section covered — not just the oral.</p>
         <div class="pk-price"><span class="pk-amt">€199</span><span class="pk-unit">one payment</span></div>
         <div class="pk-save">€20 less than buying the parts separately</div>
         <ul>
@@ -739,14 +747,14 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
           <li><b>Four 50-minute sessions</b> — about one a week, though you set the pace</li>
           <li><b>All four sections covered</b>, not only the oral</li>
           <li><b>Your written work read and marked</b> against the official criteria</li>
-          <li><b>Sessions used whenever you like</b>, for two months from purchase</li>
+          <li><b>Sessions used whenever you like</b>, for four months from purchase</li>
         </ul>
-        <a class="btn btn-primary btn-lg btn-block" href="https://payhip.com/order?link=PACKAGE-2-TO-CREATE">Choose Coaching</a>
+        <a class="btn btn-primary btn-lg btn-block" href="https://payhip.com/order?link=PACKAGE-2-TO-CREATE">Choose this — €199</a>
       </div>
 
       <div class="pk rv">
-        <div class="pk-name">Intensive</div>
-        <p class="pk-for">Your exam is close, or you have sat it before and missed.</p>
+        <div class="pk-name">Sat the whole exam first</div>
+        <p class="pk-for">Your date is close, or you have sat it before and missed.</p>
         <div class="pk-price"><span class="pk-amt">€319</span><span class="pk-unit">one payment</span></div>
         <div class="pk-save">€40 less than buying the parts separately</div>
         <ul>
@@ -754,11 +762,16 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
           <li><b>Eight 50-minute sessions</b> — about two a week, though you set the pace</li>
           <li><b>A full mock exam</b>, spoken and written, marked and talked through</li>
           <li><b>Every piece of written work</b> read and marked</li>
-          <li><b>Priority on the calendar</b>, and two months to use every session</li>
+          <li><b>Taught by Antoine himself</b>, not a stand-in — and four months to use every session</li>
         </ul>
-        <a class="btn btn-ghost btn-lg btn-block" href="https://payhip.com/order?link=PACKAGE-3-TO-CREATE">Choose Intensive</a>
+        <a class="btn btn-ghost btn-lg btn-block" href="https://payhip.com/order?link=PACKAGE-3-TO-CREATE">Choose this — €319</a>
       </div>
 
+    </div>
+
+    <div class="pk-upg rv">
+      <b>Start small, move up later.</b>
+      <span>Take the first package, and if you want more you pay only the difference — €114 to €199, or €199 to €319 — any time within your four months. Nothing is wasted and you never have to commit to the largest package on faith. Write to <a href="mailto:contact@delfmasterclass.com">contact@delfmasterclass.com</a> and we send you the link.</span>
     </div>
 
     <div class="pk-foot rv">
