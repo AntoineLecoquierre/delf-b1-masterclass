@@ -505,12 +505,83 @@ section{padding:clamp(66px,8vw,110px) 0;}
 
 /* ---------- modules rail ---------- */
 .rail{margin-top:52px;border-top:1px solid var(--rule-dark);}
-.mod{display:grid;grid-template-columns:118px 1fr;gap:0 32px;padding:28px 0;border-bottom:1px solid var(--rule-dark);align-items:start;}
-.mod-tag{display:flex;flex-direction:column;gap:3px;}
-.mod-n{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--brass-lt);letter-spacing:.06em;}
-.mod-sub{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-2);}
-.mod h3{margin-bottom:8px;}
-.mod p{font-size:15.5px;line-height:1.62;max-width:62ch;}
+/* ══════════ THE ROADMAP ══════════ */
+.rm{position:relative;margin-top:46px;}
+/* the spine, and the light that keeps travelling down it */
+.rm::before{
+  content:"";position:absolute;left:27px;top:34px;bottom:34px;width:2px;
+  background:linear-gradient(180deg,transparent,var(--rule-dark) 8%,var(--rule-dark) 92%,transparent);
+}
+.rm::after{
+  content:"";position:absolute;left:26px;top:34px;width:4px;height:84px;border-radius:4px;
+  background:linear-gradient(180deg,transparent,var(--brass-lt),transparent);
+  opacity:.85;animation:rm-travel 9s linear infinite;
+}
+@keyframes rm-travel{from{transform:translateY(-90px);}to{transform:translateY(calc(100% + 90px));}}
+
+.rm-step{
+  position:relative;display:grid;grid-template-columns:56px 1fr;gap:0 26px;
+  padding:26px 0;align-items:start;
+}
+.rm-step + .rm-step{border-top:1px solid var(--rule-dark);}
+
+.rm-node{
+  position:relative;width:56px;height:56px;border-radius:50%;flex:none;
+  background:#123838;border:1px solid var(--rule-dark);
+  display:flex;align-items:center;justify-content:center;z-index:1;
+}
+/* each node breathes, offset from its neighbours so the column never pulses as one */
+.rm-node::after{
+  content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid var(--brass-lt);
+  opacity:0;animation:rm-halo 5s ease-in-out infinite;
+}
+.rm-step:nth-child(2) .rm-node::after{animation-delay:1s;}
+.rm-step:nth-child(3) .rm-node::after{animation-delay:2s;}
+.rm-step:nth-child(4) .rm-node::after{animation-delay:3s;}
+.rm-step:nth-child(5) .rm-node::after{animation-delay:4s;}
+@keyframes rm-halo{0%,100%{opacity:0;transform:scale(1);}45%{opacity:.55;transform:scale(1.14);}}
+
+.rm-ico{width:27px;height:27px;overflow:visible;}
+.rm-ico *{vector-effect:non-scaling-stroke;}
+
+.rm-head{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;margin-bottom:7px;}
+.rm-n{
+  font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--brass-lt);border:1px solid var(--rule-dark);border-radius:100px;padding:3px 9px;
+}
+.rm-fr{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--sage-2);}
+.rm-step h3{margin-bottom:8px;}
+.rm-step p{font-size:15.5px;line-height:1.62;max-width:62ch;}
+
+/* ── the five illustrations, each animating what its module teaches ── */
+/* 1 · blueprint: the grid resolves, line by line */
+.bp-l{opacity:.25;animation:bp 4.2s ease-in-out infinite;}
+.bp-l:nth-of-type(2){animation-delay:.5s;}
+.bp-l:nth-of-type(3){animation-delay:1s;}
+@keyframes bp{0%,70%,100%{opacity:.25;}22%{opacity:1;}}
+/* 2 · listening: an equaliser */
+.eq{transform-origin:center bottom;animation:eq 1.5s ease-in-out infinite;}
+.eq:nth-of-type(2){animation-delay:.22s;}
+.eq:nth-of-type(3){animation-delay:.44s;}
+.eq:nth-of-type(4){animation-delay:.15s;}
+@keyframes eq{0%,100%{transform:scaleY(.35);}50%{transform:scaleY(1);}}
+/* 3 · reading: a scan runs down the text */
+.scan{animation:scan 3.4s ease-in-out infinite;}
+@keyframes scan{0%,100%{transform:translateY(0);opacity:.35;}50%{transform:translateY(11px);opacity:1;}}
+/* 4 · writing: the line under the nib draws, then clears */
+.wr-u{stroke-dasharray:18;stroke-dashoffset:18;animation:wr 4s ease-in-out infinite;}
+@keyframes wr{0%{stroke-dashoffset:18;}45%,65%{stroke-dashoffset:0;}100%{stroke-dashoffset:18;}}
+/* 5 · speaking: two bubbles taking turns, like a conversation */
+.sp-a{animation:sp 3.6s ease-in-out infinite;}
+.sp-b{animation:sp 3.6s ease-in-out infinite;animation-delay:1.8s;}
+@keyframes sp{0%,100%{opacity:.3;}40%{opacity:1;}}
+
+@media(max-width:620px){
+  .rm::before,.rm::after{left:21px;}
+  .rm-step{grid-template-columns:44px 1fr;gap:0 18px;}
+  .rm-node{width:44px;height:44px;}
+  .rm-ico{width:21px;height:21px;}
+}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px;}
 .chips span{
   display:inline-flex;align-items:center;padding:5px 12px;border-radius:100px;
@@ -706,7 +777,12 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
 .rv.in{opacity:1;transform:none;}
 @media (prefers-reduced-motion:reduce){
   .hero::before,.hero::after,.hero-media,.pk-feat::after,.btn-primary::after,.hdr-progress,
-  .who-i::before,.lad-on,.seal-r,.seal-c,.fvr-inf,.fvr-d{animation:none;}
+  .who-i::before,.lad-on,.seal-r,.seal-c,.fvr-inf,.fvr-d,
+  .rm-node::after,.bp-l,.eq,.scan,.wr-u,.sp-a,.sp-b{animation:none;}
+  .rm::after{display:none;}
+  .bp-l,.scan,.sp-a,.sp-b{opacity:1;}
+  .wr-u{stroke-dashoffset:0;}
+  .eq{transform:none;}
   .hero-media{transform:none;}
   .pk-feat::after,.btn-primary::after{display:none;}
   .rv{opacity:1;transform:none;transition:none;}
@@ -888,47 +964,52 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
       <p class="lead" style="color:var(--sage)">Each module pairs a video lesson with the workbook you practise on. Everything downloads, and it is yours for life.</p>
     </div>
 
-    <div class="rail">
-      <article class="mod rv">
-        <div class="mod-tag"><span class="mod-n">Module 1</span><span class="mod-sub">Foundation</span></div>
-        <div>
+    <div class="rm">
+      <div class="rm-step rv">
+        <div class="rm-node"><svg class="rm-ico" viewBox="0 0 24 24" fill="none" stroke="#d4b463" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="2.5" width="17" height="19" rx="2"/><line class="bp-l" x1="7" y1="8" x2="17" y2="8"/><line class="bp-l" x1="7" y1="12" x2="17" y2="12"/><line class="bp-l" x1="7" y1="16" x2="13" y2="16"/></svg></div>
+        <div class="rm-body">
+          <div class="rm-head"><span class="rm-n">Module 1</span><span class="rm-fr">Foundation</span></div>
           <h3 class="h3">The exam blueprint</h3>
           <p>The four sections, how each is marked, and the elimination rule that quietly fails candidates who do not know it. Then a six-week plan telling you what to do each day.</p>
           <div class="chips"><span>Video lesson</span><span>6-week study plan</span></div>
         </div>
-      </article>
-      <article class="mod rv">
-        <div class="mod-tag"><span class="mod-n">Module 2</span><span class="mod-sub">Compréhension de l'oral</span></div>
-        <div>
+      </div>
+      <div class="rm-step rv">
+        <div class="rm-node"><svg class="rm-ico" viewBox="0 0 24 24" fill="none" stroke="#d4b463" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line class="eq" x1="5" y1="9" x2="5" y2="19"/><line class="eq" x1="9.7" y1="5" x2="9.7" y2="19"/><line class="eq" x1="14.4" y1="7" x2="14.4" y2="19"/><line class="eq" x1="19" y1="11" x2="19" y2="19"/></svg></div>
+        <div class="rm-body">
+          <div class="rm-head"><span class="rm-n">Module 2</span><span class="rm-fr">Compréhension de l'oral</span></div>
           <h3 class="h3">Listening</h3>
           <p>How the audio is built, and the Two-Listen Strategy: what to catch on the first play, what to hunt on the second. Then two complete exams under real conditions.</p>
           <div class="chips"><span>Video lesson</span><span>2 full listening exams</span><span>6 audio recordings</span><span>Annotated keys</span></div>
         </div>
-      </article>
-      <article class="mod rv">
-        <div class="mod-tag"><span class="mod-n">Module 3</span><span class="mod-sub">Compréhension des écrits</span></div>
-        <div>
+      </div>
+      <div class="rm-step rv">
+        <div class="rm-node"><svg class="rm-ico" viewBox="0 0 24 24" fill="none" stroke="#d4b463" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 4.5h7v15H4z"/><path d="M13 4.5h7v15h-7z"/><line class="scan" x1="5.5" y1="8" x2="18.5" y2="8" stroke-width="1.9"/></svg></div>
+        <div class="rm-body">
+          <div class="rm-head"><span class="rm-n">Module 3</span><span class="rm-fr">Compréhension des écrits</span></div>
           <h3 class="h3">Reading</h3>
-          <p>Reading is a race against the clock. The skim-then-scan method, and how to spot the distractor answers built to trap you — including the <em>vrai/faux</em> questions where you must quote the proof.</p>
+          <p>Reading is a race against the clock. The skim-then-scan method, and how to spot the distractor answers built to trap you — including the ones that quote the text back at you.</p>
           <div class="chips"><span>Video lesson</span><span>2 exam-style tests</span><span>Annotated keys</span></div>
         </div>
-      </article>
-      <article class="mod rv">
-        <div class="mod-tag"><span class="mod-n">Module 4</span><span class="mod-sub">Production écrite</span></div>
-        <div>
+      </div>
+      <div class="rm-step rv">
+        <div class="rm-node"><svg class="rm-ico" viewBox="0 0 24 24" fill="none" stroke="#d4b463" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.5 3.6l4.9 4.9L9.2 19.7l-5.7.8.8-5.7z"/><line class="wr-u" x1="3.5" y1="22" x2="21" y2="22" stroke-width="1.9"/></svg></div>
+        <div class="rm-body">
+          <div class="rm-head"><span class="rm-n">Module 4</span><span class="rm-fr">Production écrite</span></div>
           <h3 class="h3">Writing</h3>
-          <p>More than half the marks are for structure, not vocabulary. You get the four-paragraph frame that works for any prompt, the official grid decoded in English, and graded model answers to measure yourself against.</p>
+          <p>More than half the marks are for structure, not vocabulary. You get the four-paragraph frame that works for any prompt, the official grid decoded, and graded model answers.</p>
           <div class="chips"><span>Video lesson</span><span>2 real exam prompts</span><span>Graded models + grid</span></div>
         </div>
-      </article>
-      <article class="mod rv">
-        <div class="mod-tag"><span class="mod-n">Module 5</span><span class="mod-sub">Production orale</span></div>
-        <div>
+      </div>
+      <div class="rm-step rv">
+        <div class="rm-node"><svg class="rm-ico" viewBox="0 0 24 24" fill="none" stroke="#d4b463" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path class="sp-a" d="M3 5.5h11v8H7.5L4 16.5v-3H3z"/><path class="sp-b" d="M20 9.5h-4v7h3.2l1.8 2.5v-2.5H20z"/></svg></div>
+        <div class="rm-body">
+          <div class="rm-head"><span class="rm-n">Module 5</span><span class="rm-fr">Production orale</span></div>
           <h3 class="h3">Speaking</h3>
-          <p>The oral frightens most candidates, yet it is the most predictable section once you know its three parts. Walk through each one, with the phrases you will actually use — plus a B1 grammar reference for the mistakes that quietly cost points.</p>
+          <p>The oral frightens most candidates, yet it is the most predictable section once you know its three parts. Walk through each one, with role-play cards and model answers.</p>
           <div class="chips"><span>Video lesson</span><span>Role-play cards &amp; model answers</span><span>Grammar reference</span></div>
         </div>
-      </article>
+      </div>
     </div>
 
     <div class="totals rv">
