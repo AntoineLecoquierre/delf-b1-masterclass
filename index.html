@@ -381,15 +381,97 @@ section{padding:clamp(66px,8vw,110px) 0;}
 
 /* ---------- why ---------- */
 .who-wrap{background:var(--paper-2);}
-.who{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;}
-.who-i{padding:28px 26px;background:var(--card);border:1px solid var(--rule);border-radius:14px;}
+.who{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;align-items:stretch;}
+.who-i{
+  position:relative;overflow:hidden;display:flex;flex-direction:column;
+  padding:28px 26px;background:var(--card);border:1px solid var(--rule);border-radius:14px;
+}
+/* each card carries a slow bloom in its own colour, so all three are alive */
+.who-i::before{
+  content:"";position:absolute;width:150%;aspect-ratio:1;left:-25%;top:-60%;
+  border-radius:50%;filter:blur(52px);opacity:.55;pointer-events:none;z-index:0;
+}
+.who-i > *{position:relative;z-index:1;}
 .who-t{
-  font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);
-  display:inline-block;margin-bottom:14px;padding:4px 11px;border:1px solid var(--rule);border-radius:100px;
+  font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  display:inline-block;margin-bottom:14px;padding:4px 11px;border-radius:100px;
+  color:var(--brass);border:1px solid var(--rule);
 }
 .who-i h3{margin-bottom:9px;}
 .who-i p{color:var(--muted);font-size:15px;line-height:1.62;}
 .who-i p b{color:var(--ink);font-weight:600;}
+
+/* ── 1 · residency: the anchor card, dark, and the only one that is ───── */
+.who-res{background:var(--teal);border-color:var(--teal);}
+.who-res::before{background:radial-gradient(circle,rgba(212,180,99,.34),transparent 64%);animation:who-a 24s ease-in-out infinite;}
+.who-res .who-t{color:var(--brass-lt);border-color:var(--rule-dark);}
+.who-res h3{color:var(--cream);}
+.who-res h3 .g{color:var(--brass-lt);}
+.who-res p{color:var(--sage);}
+.who-res p b{color:var(--cream);}
+
+/* ── 2 · work: warm, brass edge ──────────────────────────────────────── */
+.who-work{border-top:3px solid var(--brass);}
+.who-work::before{background:radial-gradient(circle,rgba(168,132,60,.20),transparent 62%);animation:who-b 29s ease-in-out infinite;}
+
+/* ── 3 · study: cool, sage edge ──────────────────────────────────────── */
+.who-study{border-top:3px solid var(--sage-2);}
+.who-study::before{background:radial-gradient(circle,rgba(138,163,154,.30),transparent 62%);animation:who-c 34s ease-in-out infinite;}
+.who-study .who-t{color:#5f7f74;}
+
+@keyframes who-a{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(12%,10%) scale(1.18);}}
+@keyframes who-b{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-14%,12%) scale(1.14);}}
+@keyframes who-c{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(10%,-8%) scale(1.2);}}
+
+/* ── the instrument at the foot of each card ─────────────────────────── */
+.wi{margin-top:auto;padding-top:20px;}
+.wi-cap{display:block;margin-top:11px;font-size:11.5px;letter-spacing:.06em;color:var(--muted);}
+.who-res .wi-cap{color:var(--sage-2);}
+
+/* the level ladder: A2 — B1 — B2, with B1 breathing */
+.lad{display:flex;align-items:center;gap:8px;}
+.lad-s{
+  font-size:12px;font-weight:700;letter-spacing:.06em;padding:5px 10px;border-radius:7px;
+  border:1px solid var(--rule-dark);color:var(--sage-2);
+}
+.lad-on{
+  color:var(--teal);background:var(--brass-lt);border-color:var(--brass-lt);
+  animation:lad-pulse 2.8s ease-in-out infinite;
+}
+.lad-r{flex:1;height:1px;background:var(--rule-dark);}
+@keyframes lad-pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(212,180,99,.55);}
+  55%{box-shadow:0 0 0 9px rgba(212,180,99,0);}
+}
+
+/* the seal: a dashed ring turning around a fixed mark */
+.seal{display:flex;align-items:center;gap:13px;}
+.seal-r{
+  position:relative;width:44px;height:44px;flex:none;border-radius:50%;
+  border:2px dashed var(--brass);animation:seal-turn 16s linear infinite;
+}
+.seal-c{
+  position:absolute;inset:6px;border-radius:50%;background:var(--brass-lt);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11.5px;font-weight:700;color:var(--teal);
+  animation:seal-turn 16s linear infinite reverse;
+}
+.seal-t{font-size:13px;line-height:1.45;color:var(--muted);}
+.seal-t b{color:var(--ink);font-weight:600;}
+@keyframes seal-turn{to{transform:rotate(360deg);}}
+
+/* the endless track: a marker that runs and never arrives */
+.fvr{display:flex;align-items:center;gap:13px;}
+.fvr-inf{font-size:30px;line-height:1;color:#5f7f74;animation:inf-breathe 4.5s ease-in-out infinite;}
+.fvr-t{position:relative;flex:1;height:2px;background:rgba(138,163,154,.35);border-radius:2px;overflow:hidden;}
+.fvr-d{
+  position:absolute;top:-3px;left:0;width:26px;height:8px;border-radius:4px;
+  background:linear-gradient(90deg,transparent,#5f7f74,transparent);
+  animation:fvr-run 5.5s linear infinite;
+}
+@keyframes fvr-run{from{transform:translateX(-30px);}to{transform:translateX(320px);}}
+@keyframes inf-breathe{0%,100%{opacity:.55;transform:scale(1);}50%{opacity:1;transform:scale(1.1);}}
+
 .who-note{
   margin-top:26px;padding:20px 24px;border-left:3px solid var(--brass);
   background:var(--card);border-radius:0 10px 10px 0;
@@ -397,6 +479,22 @@ section{padding:clamp(66px,8vw,110px) 0;}
 }
 .who-note b{color:var(--ink);}
 @media(max-width:900px){.who{grid-template-columns:1fr;gap:16px;}}
+/* the ladder had 2px of slack at 390px — give it room rather than trust the font */
+/* .btn is nowrap, so "Choose this — €329" set a floor the 320px viewport could
+   not meet and pushed the pricing cards 6px past the screen. Pre-existing. */
+@media(max-width:360px){
+  .lm{grid-template-columns:1fr;}
+  .btn-lg{padding-left:22px;padding-right:22px;font-size:15.5px;}
+}
+@media(max-width:430px){
+  .pk{padding-left:20px;padding-right:20px;}
+  .pk .btn-block{white-space:normal;padding-left:16px;padding-right:16px;font-size:15.5px;}
+}
+@media(max-width:420px){
+  .lad{gap:6px;}
+  .lad-s{padding:5px 8px;font-size:11.5px;}
+  .wi-cap{font-size:11px;}
+}
 .why{display:grid;grid-template-columns:repeat(3,1fr);margin-top:48px;border-top:1px solid var(--rule);}
 .why-i{padding:30px 28px 30px 0;border-right:1px solid var(--rule);}
 .why-i:last-child{border-right:0;padding-right:0;}
@@ -607,7 +705,8 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
 .rv{opacity:0;transform:translateY(16px);transition:opacity .65s var(--ease),transform .65s var(--ease);}
 .rv.in{opacity:1;transform:none;}
 @media (prefers-reduced-motion:reduce){
-  .hero::before,.hero::after,.hero-media,.pk-feat::after,.btn-primary::after,.hdr-progress{animation:none;}
+  .hero::before,.hero::after,.hero-media,.pk-feat::after,.btn-primary::after,.hdr-progress,
+  .who-i::before,.lad-on,.seal-r,.seal-c,.fvr-inf,.fvr-d{animation:none;}
   .hero-media{transform:none;}
   .pk-feat::after,.btn-primary::after{display:none;}
   .rv{opacity:1;transform:none;transition:none;}
@@ -706,22 +805,46 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
       <p class="lead">Nobody sits the DELF B1 for fun. There is a form, a deadline and something riding on it. If one of these is you, this was built for you.</p>
     </div>
     <div class="who">
-      <div class="who-i rv">
+      <div class="who-i who-res rv">
         <span class="who-t">Residency</span>
         <h3 class="h3">The 10-year <em class="g">carte de résident</em></h3>
         <p>Since January 2026 this card is the one that asks for <b>B1 exactly</b> — A2 is not enough, and B2 is more than the file needs. If this is your goal, B1 is not a stepping stone. It is the requirement.</p>
+        <div class="wi" aria-hidden="true">
+          <div class="lad">
+            <span class="lad-s">A2</span><span class="lad-r"></span>
+            <span class="lad-s lad-on">B1</span><span class="lad-r"></span>
+            <span class="lad-s">B2</span>
+          </div>
+          <span class="wi-cap">A2 permit · B1 resident card · B2 citizenship</span>
+        </div>
       </div>
-      <div class="who-i rv">
+
+      <div class="who-i who-work rv">
         <span class="who-t">Work</span>
         <h3 class="h3">A job that wants it <em class="g">on paper</em></h3>
         <p>An employer, a professional body or a promotion that will not move without a recognised certificate. Your spoken French may already be fine; what is missing is the diploma that proves it to someone who has never met you.</p>
+        <div class="wi" aria-hidden="true">
+          <div class="seal">
+            <span class="seal-r"><span class="seal-c">B1</span></span>
+            <span class="seal-t"><b>A national diploma</b> — not a course certificate</span>
+          </div>
+        </div>
       </div>
-      <div class="who-i rv">
+
+      <div class="who-i who-study rv">
         <span class="who-t">Study &amp; beyond</span>
         <h3 class="h3">A programme with a <em class="g">language floor</em></h3>
         <p>Course entry, an exchange, a placement or an assistantship that sets B1 as the minimum. The DELF is a national diploma with no expiry date, so once it is done it is done — for this application and every one after it.</p>
+        <div class="wi" aria-hidden="true">
+          <div class="fvr">
+            <span class="fvr-inf">∞</span>
+            <span class="fvr-t"><span class="fvr-d"></span></span>
+          </div>
+          <span class="wi-cap">Sat once. Valid for the rest of your life.</span>
+        </div>
       </div>
     </div>
+
     <div class="who-note rv">
       <b>If you are applying for French citizenship, stop here — B1 will not do it.</b>
       Naturalisation moved to <b>B2</b> on 1 January 2026. You would pass this exam and still be turned down, so buy the right level rather than this one. Requirements also change and differ by country and by year: <b>check the official source for your own situation before you book anything</b>. Nothing on this site is legal or immigration advice.
