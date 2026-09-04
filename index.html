@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Google tag (gtag.js) — GA4 with Consent Mode v2 -->
+<!-- Payhip overlay checkout: keeps the buyer on delfmasterclass.com.
+     Only loaded here — no other page carries a buy button. -->
+<script defer src="https://payhip.com/payhip.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QQ8E1P47Q"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -16,7 +19,7 @@
 </script>
 
 <title>DELF B1 Private Coaching, Taught in English | DELF B1 Masterclass</title>
-<meta name="description" content="Private coaching to pass the DELF B1, explained in English. A structured method plus one-to-one sessions with a qualified teacher. From €149, one payment.">
+<meta name="description" content="Private coaching to pass the DELF B1, explained in English. A structured method plus weekly one-to-one sessions with a qualified teacher. From €259 a month, cancel any time.">
 <meta name="keywords" content="DELF B1, DELF B1 exam, DELF B1 preparation, DELF B1 course in English, DELF B1 practice test, DELF B1 speaking, DELF B1 writing, pass DELF B1, French exam preparation">
 <meta name="author" content="Antoine L.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -103,8 +106,8 @@
       "offers": [
         {
           "@type": "Offer",
-          "name": "Know where you stand — the method and one private session",
-          "price": "149",
+          "name": "Weekly — the method and four sessions a month",
+          "price": "259",
           "priceCurrency": "EUR",
           "valueAddedTaxIncluded": false,
           "availability": "https://schema.org/InStock",
@@ -113,8 +116,8 @@
         },
         {
           "@type": "Offer",
-          "name": "Ready on all four papers — the method and four private sessions",
-          "price": "329",
+          "name": "Twice weekly — the method and eight sessions a month",
+          "price": "499",
           "priceCurrency": "EUR",
           "valueAddedTaxIncluded": false,
           "availability": "https://schema.org/InStock",
@@ -123,8 +126,8 @@
         },
         {
           "@type": "Offer",
-          "name": "Sat the whole exam first — the method and eight private sessions",
-          "price": "579",
+          "name": "Intensive — the method and twelve sessions a month",
+          "price": "699",
           "priceCurrency": "EUR",
           "valueAddedTaxIncluded": false,
           "availability": "https://schema.org/InStock",
@@ -154,7 +157,7 @@
         { "@type": "Question", "name": "How long does it take to work through?", "acceptedAnswer": { "@type": "Answer", "text": "Most people finish in four to six weeks at around thirty to forty-five minutes a day. A six-week study plan is included, and you can go faster or slower — there is no schedule to keep up with." } },
         { "@type": "Question", "name": "How long do I have access?", "acceptedAnswer": { "@type": "Answer", "text": "For life, including every update to the course. The PDF workbooks and audio files are downloadable, so they are yours to keep whatever happens." } },
         { "@type": "Question", "name": "Which DELF B1 session is this for?", "acceptedAnswer": { "@type": "Answer", "text": "It prepares you for the standard DELF B1, which is valid worldwide for any session date. The format and criteria are the same wherever you sit it." } },
-        { "@type": "Question", "name": "Can I get a refund?", "acceptedAnswer": { "@type": "Answer", "text": "No. The course is a digital product and all sales are final. Once you receive access, your purchase cannot be cancelled or refunded. By buying, you accept the Terms of Sale, including the no-refund policy. This does not affect any rights or refunds required by applicable law. The free four-page cheat sheet is there so you can find out before you pay." } }
+        { "@type": "Question", "name": "Can I cancel, and can I get a refund?", "acceptedAnswer": { "@type": "Answer", "text": "You can cancel at any time — coaching is a monthly subscription with no notice period and no exit fee, and cancelling stops the next payment. A month already billed is not refunded: the method is delivered in full when you join and sessions hold real calendar time. Unused sessions roll over while you are subscribed, and the method stays yours permanently. This does not affect any rights or refunds required by applicable law." } }
       ]
     }
   ]
@@ -480,7 +483,7 @@ section{padding:clamp(66px,8vw,110px) 0;}
 .who-note b{color:var(--ink);}
 @media(max-width:900px){.who{grid-template-columns:1fr;gap:16px;}}
 /* the ladder had 2px of slack at 390px — give it room rather than trust the font */
-/* .btn is nowrap, so "Choose this — €329" set a floor the 320px viewport could
+/* .btn is nowrap, so a long CTA label set a floor the 320px viewport could
    not meet and pushed the pricing cards 6px past the screen. Pre-existing. */
 @media(max-width:360px){
   .lm{grid-template-columns:1fr;}
@@ -687,6 +690,27 @@ section{padding:clamp(66px,8vw,110px) 0;}
 .pk-feat li{color:var(--sage);border-top-color:var(--rule-dark);}
 .pk-feat li b{color:var(--cream);}
 .pk-feat li::before{background:var(--brass-lt);}
+/* ── how much of the exam each tier lets you rehearse.
+      Counts of real sessions, not a claim about anyone's odds. ── */
+.cv{margin:18px 0 0;display:flex;flex-direction:column;gap:7px;}
+.cv-row{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.cv-p{font-size:12.5px;letter-spacing:.04em;color:var(--muted);}
+.pk-feat .cv-p{color:var(--sage);}
+.cv-dots{display:flex;gap:5px;}
+.cv-d{
+  width:22px;height:5px;border-radius:3px;background:var(--rule);display:block;
+}
+.pk-feat .cv-d{background:rgba(246,241,228,.16);}
+.cv-d.on{background:var(--brass);animation:cv-glow 3.4s ease-in-out infinite;}
+.pk-feat .cv-d.on{background:var(--brass-lt);}
+.cv-row:nth-child(2) .cv-d.on{animation-delay:.25s;}
+.cv-row:nth-child(3) .cv-d.on{animation-delay:.5s;}
+.cv-row:nth-child(4) .cv-d.on{animation-delay:.75s;}
+@keyframes cv-glow{0%,100%{opacity:.72;}50%{opacity:1;}}
+.cv-cap{margin:11px 0 0;font-size:12.5px;color:var(--muted);}
+.cv-cap b{color:var(--ink);font-weight:600;}
+.pk-feat .cv-cap{color:var(--sage);}
+.pk-feat .cv-cap b{color:var(--cream);}
 .pk .btn{margin-top:auto;border-radius:8px;}
 .pk-upg{
   max-width:1120px;margin:26px auto 0;padding:20px 26px;
@@ -778,7 +802,7 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
 @media (prefers-reduced-motion:reduce){
   .hero::before,.hero::after,.hero-media,.pk-feat::after,.btn-primary::after,.hdr-progress,
   .who-i::before,.lad-on,.seal-r,.seal-c,.fvr-inf,.fvr-d,
-  .rm-node::after,.bp-l,.eq,.scan,.wr-u,.sp-a,.sp-b{animation:none;}
+  .rm-node::after,.bp-l,.eq,.scan,.wr-u,.sp-a,.sp-b,.cv-d.on{animation:none;}
   .rm::after{display:none;}
   .bp-l,.scan,.sp-a,.sp-b{opacity:1;}
   .wr-u{stroke-dashoffset:0;}
@@ -843,14 +867,14 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
       <h1 class="display">This isn't French lessons. <em>It's how you pass the DELF&nbsp;B1.</em></h1>
       <p class="hero-sub">Most people fail this exam not because their French is weak, but because nobody told them what it actually rewards. This is <b>private coaching built around one goal</b> — the method that decodes every section, then one-to-one sessions with a qualified teacher until nothing on the day is a surprise.</p>
       <div class="price-row">
-        <span class="pr-now">From €149</span>
-        <span class="pr-alt">one payment · the method <b>and</b> a teacher</span>
+        <span class="pr-now">From €259</span>
+        <span class="pr-alt">a month · the method <b>and</b> a teacher, every week</span>
       </div>
       <div class="hero-cta">
         <a class="btn btn-primary btn-lg" href="#enrol">See the programmes</a>
         <a class="btn btn-ghost btn-lg" href="#inside">What you work through</a>
       </div>
-      <p class="hero-note">Lifetime access · <b>no subscription</b> · price excl. VAT</p>
+      <p class="hero-note">Cancel any time · <b>the method is yours to keep</b> · price excl. VAT</p>
     </div>
     <div class="hero-media">
       <span class="media-tag">Inside the method</span>
@@ -1059,71 +1083,76 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
   <div class="wrap">
     <div class="shead center rv">
       <span class="eyebrow">Choose your programme</span>
-      <h2 class="h2">Coaching to pass. <em class="g">Nothing you don't need.</em></h2>
-      <p class="lead">Every programme includes the full method and one-to-one sessions with a qualified teacher. They differ only in how much time you get with them.</p>
+      <h2 class="h2">Coaching to pass. <em class="g">Month by month.</em></h2>
+      <p class="lead">Every plan includes the full method from day one, then weekly one-to-one sessions with a qualified teacher. They differ only in how often you sit down together.</p>
     </div>
 
     <div class="pk-grid">
 
       <div class="pk rv">
-        <div class="pk-name">Know where you stand</div>
-        <p class="pk-for">One honest read on your level, before you commit to anything bigger.</p>
-        <div class="pk-price"><span class="pk-amt">€149</span><span class="pk-unit">one payment</span></div>
-        <div class="pk-save">The smallest way in — one session, no padding</div>
+        <div class="pk-name">Weekly</div>
+        <p class="pk-for">One session a week. Steady, and enough to cover every paper once a month.</p>
+        <div class="pk-price"><span class="pk-amt">€259</span><span class="pk-unit">per month</span></div>
+        <div class="pk-save">4 sessions a month · €21 under the same sessions bought one by one</div>
+        <div class="cv" aria-hidden="true"><div class="cv-row"><span class="cv-p">Listening</span><span class="cv-dots"><i class="cv-d on"></i><i class="cv-d"></i><i class="cv-d"></i></span></div><div class="cv-row"><span class="cv-p">Reading</span><span class="cv-dots"><i class="cv-d on"></i><i class="cv-d"></i><i class="cv-d"></i></span></div><div class="cv-row"><span class="cv-p">Writing</span><span class="cv-dots"><i class="cv-d on"></i><i class="cv-d"></i><i class="cv-d"></i></span></div><div class="cv-row"><span class="cv-p">Speaking</span><span class="cv-dots"><i class="cv-d on"></i><i class="cv-d"></i><i class="cv-d"></i></span></div></div>
+        <p class="cv-cap">Each paper rehearsed <b>once</b> a month</p>
         <ul>
-          <li><b>The full method</b> — 5 modules, 7 workbooks, 6 audios, yours for life</li>
-          <li><b>One 50-minute session</b> with a qualified teacher, one to one on video</li>
-          <li><b>The full speaking exam</b>, run in exam conditions</li>
-          <li><b>Scored against the real grid</b>, so you hear exactly where the marks go</li>
-          <li><b>Booked whenever you like</b>, within four months of purchase</li>
-        </ul>
-        <a class="btn btn-ghost btn-lg btn-block" href="https://payhip.com/order?link=PACKAGE-1-TO-CREATE">Choose this — €149</a>
+            <li><b>The full method</b> — 5 modules, 7 workbooks, 6 audios, yours to keep</li>
+            <li><b>Four 50-minute sessions</b> a month, one to one on video</li>
+            <li><b>Your written work marked</b> against the official criteria</li>
+            <li><b>Cancel any time</b>, effective at the end of the month</li>
+          </ul>
+        <a class="btn btn-ghost btn-lg btn-block payhip-buy-button" data-theme="none" data-product="SUB-1-TO-CREATE" href="https://payhip.com/order?link=SUB-1-TO-CREATE">Start weekly — €259/mo</a>
       </div>
 
       <div class="pk pk-feat rv">
         <span class="pk-badge">Most chosen</span>
-        <div class="pk-name">Ready on all four papers</div>
-        <p class="pk-for">You have a date, and you want every section covered — not just the oral.</p>
-        <div class="pk-price"><span class="pk-amt">€329</span><span class="pk-unit">one payment</span></div>
-        <div class="pk-save">€30 less than buying the parts separately</div>
+        <div class="pk-name">Twice weekly</div>
+        <p class="pk-for">The rhythm most people need: learn a paper, then sit it under timed conditions.</p>
+        <div class="pk-price"><span class="pk-amt">€499</span><span class="pk-unit">per month</span></div>
+        <div class="pk-save">8 sessions a month · €61 under the same sessions bought one by one</div>
+        <div class="cv" aria-hidden="true"><div class="cv-row"><span class="cv-p">Listening</span><span class="cv-dots"><i class="cv-d on"></i><i class="cv-d on"></i><i class="cv-d"></i></span></div><div class="cv-row"><span class="cv-p">Reading</span><span class="cv-dots"><i class="cv-d on"></i><i class="cv-d on"></i><i class="cv-d"></i></span></div><div class="cv-row"><span class="cv-p">Writing</span><span class="cv-dots"><i class="cv-d on"></i><i class="cv-d on"></i><i class="cv-d"></i></span></div><div class="cv-row"><span class="cv-p">Speaking</span><span class="cv-dots"><i class="cv-d on"></i><i class="cv-d on"></i><i class="cv-d"></i></span></div></div>
+        <p class="cv-cap">Each paper rehearsed <b>twice</b> a month</p>
         <ul>
-          <li><b>The full method</b>, exactly as above</li>
-          <li><b>Four 50-minute sessions</b> — about one a week, though you set the pace</li>
-          <li><b>All four sections covered</b>, not only the oral</li>
-          <li><b>Your written work read and marked</b> against the official criteria</li>
-          <li><b>Sessions used whenever you like</b>, for four months from purchase</li>
-        </ul>
-        <a class="btn btn-primary btn-lg btn-block" href="https://payhip.com/order?link=PACKAGE-2-TO-CREATE">Choose this — €329</a>
+            <li><b>Everything in Weekly</b>, at twice the pace</li>
+            <li><b>Eight 50-minute sessions</b> a month</li>
+            <li><b>All four sections covered</b>, not only the oral</li>
+            <li><b>A timed mock of each paper</b>, marked and talked through</li>
+            <li><b>Cancel any time</b>, effective at the end of the month</li>
+          </ul>
+        <a class="btn btn-primary btn-lg btn-block payhip-buy-button" data-theme="none" data-product="SUB-2-TO-CREATE" href="https://payhip.com/order?link=SUB-2-TO-CREATE">Start twice weekly — €499/mo</a>
       </div>
 
       <div class="pk rv">
-        <div class="pk-name">Sat the whole exam first</div>
-        <p class="pk-for">Your date is close, or you have sat it before and missed.</p>
-        <div class="pk-price"><span class="pk-amt">€579</span><span class="pk-unit">one payment</span></div>
-        <div class="pk-save">€60 less than buying the parts separately</div>
+        <div class="pk-name">Intensive</div>
+        <p class="pk-for">Your date is close, or you have sat it before. Three a week until it is dull.</p>
+        <div class="pk-price"><span class="pk-amt">€699</span><span class="pk-unit">per month</span></div>
+        <div class="pk-save">12 sessions a month · €141 under the same sessions bought one by one</div>
+        <div class="cv" aria-hidden="true"><div class="cv-row"><span class="cv-p">Listening</span><span class="cv-dots"><i class="cv-d on"></i><i class="cv-d on"></i><i class="cv-d on"></i></span></div><div class="cv-row"><span class="cv-p">Reading</span><span class="cv-dots"><i class="cv-d on"></i><i class="cv-d on"></i><i class="cv-d on"></i></span></div><div class="cv-row"><span class="cv-p">Writing</span><span class="cv-dots"><i class="cv-d on"></i><i class="cv-d on"></i><i class="cv-d on"></i></span></div><div class="cv-row"><span class="cv-p">Speaking</span><span class="cv-dots"><i class="cv-d on"></i><i class="cv-d on"></i><i class="cv-d on"></i></span></div></div>
+        <p class="cv-cap">Each paper rehearsed <b>three times</b> a month</p>
         <ul>
-          <li><b>The full method</b>, exactly as above</li>
-          <li><b>Eight 50-minute sessions</b> — about two a week, though you set the pace</li>
-          <li><b>A full mock exam</b>, spoken and written, marked and talked through</li>
-          <li><b>Every piece of written work</b> read and marked</li>
-          <li><b>Taught by Antoine himself</b>, not a stand-in — and four months to use every session</li>
-        </ul>
-        <a class="btn btn-ghost btn-lg btn-block" href="https://payhip.com/order?link=PACKAGE-3-TO-CREATE">Choose this — €579</a>
+            <li><b>Everything in Twice weekly</b>, at three a week</li>
+            <li><b>Twelve 50-minute sessions</b> a month</li>
+            <li><b>A full mock exam</b>, spoken and written, end to end</li>
+            <li><b>Taught by Antoine himself</b>, not a stand-in</li>
+            <li><b>Cancel any time</b>, effective at the end of the month</li>
+          </ul>
+        <a class="btn btn-ghost btn-lg btn-block payhip-buy-button" data-theme="none" data-product="SUB-3-TO-CREATE" href="https://payhip.com/order?link=SUB-3-TO-CREATE">Start intensive — €699/mo</a>
       </div>
 
     </div>
 
     <div class="pk-upg rv">
-      <b>Start small, move up later.</b>
-      <span>Take the first package, and if you want more you pay only the difference — €149 to €329, or €329 to €579 — any time within your four months. Nothing is wasted and you never have to commit to the largest package on faith. Write to <a href="mailto:contact@delfmasterclass.com">contact@delfmasterclass.com</a> and we send you the link.</span>
+      <b>Change plan whenever you like.</b>
+      <span>Move up or down between plans at the end of any month, or stop altogether — no notice period and no exit fee. Unused sessions roll over while your subscription is running. Write to <a href="mailto:contact@delfmasterclass.com">contact@delfmasterclass.com</a> and we switch you over.</span>
     </div>
 
     <div class="pk-foot rv">
-      <span><b>Already working through the method?</b> Book a single 50-minute session on its own — €70.</span>
+      <span><b>Not ready for a monthly plan?</b> Book a single 50-minute session on its own — €70, nothing recurring.</span>
       <a href="https://calendar.app.google/zLv38h61LrjYUsmw5" target="_blank" rel="noopener noreferrer">See available times →</a>
     </div>
 
-    <div class="guar rv"><b>All sales are final.</b> Once you receive access, your purchase cannot be cancelled or refunded. This does not affect any rights required by applicable law. Read the <a href="#free">four free pages</a> first if you are unsure — <a href="/refund/">full policy</a>.</div>
+    <div class="guar rv"><b>Cancel any time; months already billed are not refunded.</b> Stopping takes one click and there is no notice period, but the month you are in is not returned. This does not affect any rights required by applicable law. Read the <a href="#free">four free pages</a> first if you are unsure — <a href="/refund/">full policy</a>.</div>
 
   </div>
 </section>
@@ -1161,8 +1190,8 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
         <div class="faq-a" id="a5" role="region" aria-labelledby="q5"><div class="faq-a-in">It prepares you for the standard DELF B1, which is valid worldwide for any session date — the format and criteria are the same wherever you sit it.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" id="q6" aria-controls="a6">Can I get a refund? <span class="faq-ic" aria-hidden="true"></span></button>
-        <div class="faq-a" id="a6" role="region" aria-labelledby="q6"><div class="faq-a-in">No. The method is a digital product delivered in full the moment you pay, and coaching sessions reserve time that is not offered to anyone else. All sales are final: once you receive access, your purchase cannot be cancelled or refunded. By buying, you accept the <a href="/terms/">Terms of Sale</a>, including the no-refund policy. This does not affect any rights or refunds required by applicable law.<br><br>Which is exactly why the <a href="#free">free four-page cheat sheet</a> exists — same material, same way of explaining things, no card. Read it first and only buy if it works for you.</div></div>
+        <button class="faq-q" aria-expanded="false" id="q6" aria-controls="a6">Can I cancel, and can I get a refund? <span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a" id="a6" role="region" aria-labelledby="q6"><div class="faq-a-in">You are never locked in, but a month already billed is not returned. Coaching is a monthly subscription: cancel whenever you like, from your Payhip account or by writing to us, and the next payment simply does not happen. There is no notice period and no exit fee.<br><br>What we do not refund is the month you are in — the method is delivered in full the moment you join, and sessions hold real time in a real calendar. Unused sessions roll over while you are subscribed, and the method stays yours permanently even if you leave after one month. This does not affect any rights or refunds required by applicable law. See the <a href="/refund/">Refund Policy</a>.<br><br>Read the <a href="#free">free four-page cheat sheet</a> before you subscribe — same material, same way of explaining things, no card.</div></div>
       </div>
     </div>
   </div>
@@ -1182,7 +1211,7 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
         <li>The single highest-leverage habit for each of the four skills</li>
         <li>24 connectors that make you sound organised, in writing and aloud</li>
       </ul>
-      <a class="btn btn-primary btn-lg" href="https://payhip.com/b/VMGvq">Download the Cheat Sheet</a>
+      <a class="btn btn-primary btn-lg payhip-buy-button" data-theme="none" data-product="VMGvq" href="https://payhip.com/b/VMGvq">Download the Cheat Sheet</a>
       <p class="tiny" style="margin-top:14px">Free forever · no card required · unsubscribe whenever you like</p>
     </div>
   </div>
@@ -1196,9 +1225,9 @@ footer{background:#08201f;color:var(--sage);padding:56px 0 42px;font-size:14px;}
       <h2 class="h2">Walk in prepared. <em class="g">Walk out certified.</em></h2>
       <p class="lead">Stop guessing what the examiner wants. Get the method, in English, and a teacher who has seen this exam go wrong often enough to keep you out of the way of it.</p>
       <div class="final-cta">
-        <a class="btn btn-primary btn-lg" href="#enrol">See the programmes — from €149</a>
+        <a class="btn btn-primary btn-lg" href="#enrol">See the programmes — from €259/mo</a>
       </div>
-      <p class="final-note">One payment · the method is yours for life · taught entirely in English</p>
+      <p class="final-note">Cancel any time · the method is yours for life · taught entirely in English</p>
     </div>
   </div>
 </section>
