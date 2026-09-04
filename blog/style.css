@@ -162,3 +162,9 @@ a:hover{text-decoration:underline;}
   .bl-brand{font-size:14.5px;}
   .bl-cta{font-size:12.5px;padding:8px 12px;}
 }
+/* at 320px the brand and button still do not fit side by side */
+@media (max-width:360px){
+  .bl-top-in{padding:11px 13px;gap:8px;}
+  .bl-brand{font-size:13px;}
+  .bl-cta{font-size:11.5px;padding:7px 10px;}
+}
